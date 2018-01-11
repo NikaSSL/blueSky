@@ -1,3 +1,6 @@
+
+<!-- Me页面中登录组件 -->
+
 <template>
 	<div class="login-box">
 		<img class="login" src="../assets/23_img_login2.png">

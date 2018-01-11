@@ -6,9 +6,11 @@ import router from './router'
 import $ from 'jquery'
 import '../node_modules/_bootstrap@3.3.7@bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/_bootstrap@3.3.7@bootstrap/dist/js/bootstrap.min.js'
+import axios from 'axios'
 
 Vue.config.productionTip = false
 Vue.config.debug = true; // 开启错误提示
+Vue.prototype.$ajax = axios;
 
 /* eslint-disable no-new */
 new Vue({

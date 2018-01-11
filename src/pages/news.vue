@@ -1,13 +1,19 @@
 <template>
 	<div>
-		This is news page
+		<head-ban></head-ban>
+		<news-new></news-new>		
 	</div>
 </template>
 
 <script>
+import HeadBan from '../components/header.vue'
+import NewsNew from '../components/newsNew.vue'
 	export default{
 		name:'news',
-		componets:{},
+		components:{
+			HeadBan,
+			NewsNew
+		},
 		created(){
 			//vuex设置状态，改变class
 			this.$store.dispatch("inNews");

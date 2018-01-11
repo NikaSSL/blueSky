@@ -3,17 +3,23 @@
 		<h2>我的</h2>
 		<me-login></me-login>
 		<me-collect></me-collect>
+		<me-config></me-config>
+		<me-config2></me-config2>
 	</div>
 </template>
 
 <script>
 import MeLogin from '../components/meLogin.vue'
 import MeCollect from '../components/meCollect.vue'
+import MeConfig from '../components/meConfig.vue'
+import MeConfig2 from '../components/meConfig2.vue'
 export default{
 	name:'me',
 	components:{
 		MeLogin,
-		MeCollect
+		MeCollect,
+		MeConfig,
+		MeConfig2
 	},
 	created(){
 		//vuex设置状态，改变class

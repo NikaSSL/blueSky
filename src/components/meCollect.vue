@@ -1,3 +1,6 @@
+
+<!-- Me页面中收藏与历史组件 -->
+
 <template>
 <div class="container-fluid">
 	<div class="row">
@@ -18,5 +21,7 @@
 		background-image: url("../assets/24_collection.png");
 		background-repeat: no-repeat;
 		background-size: 100%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 </style>
