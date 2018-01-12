@@ -1,37 +1,48 @@
 
+<!-- 新闻列表的单个新闻项 -->
 
 <template>
-	<div class="container">
-		<h2>hh</h2>
-<!-- 		<div class="row">
-			<div class="col-xs-8">
-				<h4>{{title}}</h4>
-				<span v-if="top">置顶</span>
-				<span>{{dateTime}}</span>
-				<span>{{source}}</span>
-				<span>{{count}}</span>
-				<span>{{thumbUp}}</span>
+	<div>
+		<div class="container" v-if="item.image.position==='right'">
+			<div class="row">
+				<div class="col-xs-8">
+					<h4>{{item.titile}}</h4>
+					<span v-if="item.top">置顶</span>
+					<span>{{item.dateTme}}</span>
+					<span>{{item.source}}</span>
+					<span>{{item.comments[0].count}}</span>
+					<span>{{item.comments[0].thumbUp}}</span>
+				</div>
+				<div class="col-xs-4">
+					<img v-bind:src='item.image.url'>
+				</div>
 			</div>
-			<div class="col-xs-4">
-				<i class="new-img"></i>
-			</div>
-		</div> -->
+		</div>
+		
+		<div class="container" v-else>
+			<div class="row" v-if="item.image.position==='block'">
+				<div class="col-xs-12">
+					<h4>{{item.titile}}</h4>
+				</div>
+				<div class="col-xs-12">
+					<img v-bind:src='item.image.url'>
+				</div>
+				<div class="col-xs-12">
+					<span v-if="item.top">置顶</span>
+					<span>{{item.dateTme}}</span>
+					<span>{{item.source}}</span>
+					<span>{{item.comments[0].count}}</span>
+					<span>{{item.comments[0].thumbUp}}</span>
+				</div>
+			</div>			
+		</div>
 	</div>
 </template>   
 
 <script>
 	export default{
 		name:'newsNew',
-		methods:{
-			getData(){
-				//获取JSON数据
-				this.$ajax.get("/newsList").then((response) => {
-					console.log(response.data);//需要这样获取到数组
-				});
-			}
-		},
-		mounted(){
-			this.getData();
-		}
+		props:['item']
 	}
 </script>
+
