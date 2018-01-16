@@ -2,7 +2,8 @@
 	<div>
 		<head-ban></head-ban>
 		<!-- 利用v-if判断是否加载 -->
-		<news-new v-for="(item,index) in newsList" v-if="item" :item="item"></news-new>
+		<router-link to="/newDetail">查看新闻详情</router-link>
+		<news-new v-for="(item,index) in newsList" v-if="item" :item="item" :key="index"></news-new>
 	</div>
 </template>
 
@@ -27,7 +28,7 @@ import NewsNew from '../components/newsNew.vue'
 		methods:{
 			getData(){
 				//获取JSON数据
-				this.$ajax.get("/newsList").then((response) => {
+				this.$ajax.get("/api/newsList").then((response) => {
 					this.newsList = response.data.data;
 				});
 			}

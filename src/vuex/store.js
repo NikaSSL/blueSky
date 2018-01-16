@@ -7,7 +7,8 @@ Vue.use(Vuex)
 const state = {
 	news:true,
 	orders:false,
-	me:false
+	me:false,
+	index:true
 }
 
 //初始化 mutations
@@ -26,6 +27,12 @@ const mutations = {
 		state.news = false;
 		state.orders = false;
 		state.me = true;			
+	},
+	IN_Detail(state){
+		state.index = false;
+	},
+	In_Index(state){
+		state.index = true;
 	}
 }
 
@@ -39,6 +46,12 @@ const actions ={
 	},
 	inMe({commit}){
 		commit('IN_ME');
+	},
+	inDetail({commit}){
+		commit('IN_Detail');
+	},
+	inIndex({commit}){
+		commit('In_Index');
 	}
 }
 

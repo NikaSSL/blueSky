@@ -14,8 +14,9 @@ const portfinder = require('portfinder')
 const express = require('express')
 const app = express()//请求server
 var newsList = require('../static/data/newsList.json')//加载本地数据文件
+var newsContent = require('../static/data/news1.json')
 var apiRoutes = express.Router()
-app.use('/newsList', apiRoutes)//通过路由请求数据
+app.use('/api',apiRoutes)//通过路由请求数据
 
 
 const HOST = process.env.HOST
@@ -53,10 +54,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     //第二步找到devServer,在里面添加
     before(app) {
-      app.get('/newsList', (req, res) => {
+      app.get('/api/newsList', (req, res) => {
         res.json({
           errno: 0,
           data: newsList
+        })//接口返回json数据，上面配置的数据seller就赋值给data请求后调用
+      })
+      app.get('/api/newsContent', (req, res) => {
+        res.json({
+          errno: 0,
+          data: newsContent
         })//接口返回json数据，上面配置的数据seller就赋值给data请求后调用
       })
     }    

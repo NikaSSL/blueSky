@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-    <footer-tab></footer-tab>
+    <footer-tab v-if="index"></footer-tab>
   </div>
 </template>
 
@@ -18,6 +18,11 @@ export default {
   },
   components:{
     FooterTab
+  },
+  computed:{
+    index(){
+      return this.$store.state.index;
+    }
   }
 }
 </script>
@@ -27,7 +32,7 @@ body{
   margin: 0;
 }
 #app {
-  font-family: 'SimSun','Avenir', Helvetica, Arial, sans-serif;
+  font-family: '.PingFangSC-Semibold';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
