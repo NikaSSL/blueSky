@@ -41,6 +41,7 @@ import WriteComment from '../components/writeComment.vue'
         bottom: 0;
         left: 0;
         border-top: 1px solid #E2E4E6;
+        background-color: #FFFFFF;
 	}
 	.box1{
 		margin-top: 10px;

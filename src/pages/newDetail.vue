@@ -32,7 +32,9 @@
 		width: 100%;
 		height: 50px;
 		border-bottom: 1px solid #E2E4E6;
-		position: relative;
+		position: fixed;
+		top: 0;
+		background-color: #FFFFFF;
 	}
 	.back{
 		background-image: url("../assets/4_icon_back.png");

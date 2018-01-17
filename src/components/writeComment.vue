@@ -23,6 +23,7 @@
 		line-height: 30px;
 		position: relative;
 		margin-left: 10px;
+		text-align: center;
 	}
 	.write-img{
 		background-image: url("../assets/12_write_comment.png");
