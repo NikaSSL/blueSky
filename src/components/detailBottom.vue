@@ -15,7 +15,7 @@
 					<i class="icn collect1"></i>
 				</div>
 				<div class="col-xs-4">
-					<i class="icn share"></i>
+					<i class="icn share" @click="share"></i>
 				</div>
 			</div>
 		</div>
@@ -29,6 +29,17 @@ import WriteComment from '../components/writeComment.vue'
 		name:'detailBottom',
 		components:{
 			WriteComment
+		},
+		proprs:{
+			shareState:{
+				default:false;
+			}
+		},
+		methods:{
+			share:function(){
+				//弹出分享面板
+				this.shareState = true;
+			}
 		}
 	}
 </script>

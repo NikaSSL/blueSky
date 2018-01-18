@@ -1,3 +1,6 @@
+
+<!-- 新闻栏目-文章详细内容展示组件 -->
+
 <template>
 	<div class="outer-box">
 		<span class="news-title">{{news.titile}}</span >
@@ -19,6 +22,34 @@
 		<news-content :newContent="content"></news-content>
 	</div>
 </template>
+
+<script>
+import NewsContent from '../components/detailNewsContent.vue'
+	export default{
+		name:'detailContent',
+		data(){
+			return {
+				news:'',
+				content:[]
+			}
+		},
+		methods:{
+			getData(){
+				this.$ajax.get("/api/newsContent").then((response) => {
+					this.news = response.data.data;
+					this.content = this.news.content;
+				})
+			}
+		},
+		created(){
+			this.getData();
+		},
+		components:{
+			NewsContent
+		}
+	}
+</script>
+
 
 <style scoped>
 	.outer-box{
@@ -91,29 +122,3 @@
 	}
 </style>
 
-<script>
-import NewsContent from '../components/detailNewsContent.vue'
-	export default{
-		name:'detailContent',
-		data(){
-			return {
-				news:'',
-				content:[]
-			}
-		},
-		methods:{
-			getData(){
-				this.$ajax.get("/api/newsContent").then((response) => {
-					this.news = response.data.data;
-					this.content = this.news.content;
-				})
-			}
-		},
-		created(){
-			this.getData();
-		},
-		components:{
-			NewsContent
-		}
-	}
-</script>

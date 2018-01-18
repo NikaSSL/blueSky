@@ -4,22 +4,30 @@
 <template>
 	<div>
 		<div class="header">
-			<i class="back"></i>
+			<router-link class="back" to="/news" @click="backHome"></router-link>
 		</div>
 		<detail-content></detail-content>
 		<detail-bottom></detail-bottom>
+		<share-panel v-show="shareState"></share-panel>
 	</div>
 </template>
 
 
 <script>
-	import DetailBottom from '../components/detailBottom.vue'
 	import DetailContent from '../components/detailNew.vue'
+	import DetailBottom from '../components/detailBottom.vue'
+	import SharePanel from '../components/detailShare.vue'
 	export default{
-		name:'newDetail',
+		name:'newDetail', 
 		components:{
+			DetailContent,
 			DetailBottom,
-			DetailContent
+			SharePanel
+		},
+		methods:{
+			backHome:function(){
+				this.$store.dispatch("inIndex");
+			}
 		},
 		created(){
 			this.$store.dispatch("inDetail");
@@ -35,6 +43,7 @@
 		position: fixed;
 		top: 0;
 		background-color: #FFFFFF;
+		z-index: 9999;
 	}
 	.back{
 		background-image: url("../assets/4_icon_back.png");
