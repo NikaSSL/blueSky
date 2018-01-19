@@ -1,8 +1,8 @@
 <template>
 	<div class="box">
-		<img v-if="imgSrc" src="imgSrc" class="icn">
-		<i v-else class="default" class="icn"></i>
-		<span class="msg">{{msg}}</span>
+		<img v-if="imgSrc" v-bind:src="imgSrc" class="icn">
+		<i v-else class="default icn"></i>
+		<span>{{msg}}</span>
 	</div>
 </template>
 
@@ -16,9 +16,12 @@
 <style scoped>
 	.icn{
 		display: block;
+		position: relative;
+		margin:0 auto;		
 		width: 40px;
 		height: 40px;
 		border-radius: 50%;
+		margin-top: 20px;
 	}
 	.default{
 		background-color: #D7D7D7;

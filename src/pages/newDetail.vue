@@ -7,8 +7,9 @@
 			<router-link class="back" to="/news" @click="backHome"></router-link>
 		</div>
 		<detail-content></detail-content>
-		<detail-bottom></detail-bottom>
-		<share-panel v-show="shareState"></share-panel>
+		<detail-bottom v-show="!this.$store.state.shareState"></detail-bottom>
+		<share-panel v-show="this.$store.state.shareState"></share-panel>
+		<div class="cover" v-show="this.$store.state.shareState" @click="hide"></div>
 	</div>
 </template>
 
@@ -18,7 +19,7 @@
 	import DetailBottom from '../components/detailBottom.vue'
 	import SharePanel from '../components/detailShare.vue'
 	export default{
-		name:'newDetail', 
+		name:'newDetail',
 		components:{
 			DetailContent,
 			DetailBottom,
@@ -27,6 +28,9 @@
 		methods:{
 			backHome:function(){
 				this.$store.dispatch("inIndex");
+			},
+			hide:function(){
+				this.$store.dispatch('outShare');
 			}
 		},
 		created(){
@@ -43,7 +47,7 @@
 		position: fixed;
 		top: 0;
 		background-color: #FFFFFF;
-		z-index: 9999;
+		z-index: 2;
 	}
 	.back{
 		background-image: url("../assets/4_icon_back.png");
@@ -56,5 +60,16 @@
 		position: absolute;
 		top: 50%;
 		margin-top: -8px;
+	}
+	.cover{
+		background-color: rgba(0,0,0,0.50);
+		opacity:0.6;
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 3;
 	}
 </style>

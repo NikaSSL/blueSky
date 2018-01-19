@@ -1,28 +1,33 @@
 <template>
-	<div class="container">
-		<div class="row">
-			<share-icn class="col-xs-4" v-for="(item,index) in icnInfo" :key="index"></share-icn>
+	<div class="share-panel">
+		<div class="container">
+			<div class="row">
+				<share-icn class="col-xs-4" v-for="(item,index) in icnInfo" :key="index" :imgSrc="item.imgSrc" :msg="item.msg"></share-icn>
+			</div>
 		</div>
+		<div class="line"></div>
+		<span class="cancel" @click="cancelShare">取消</span>
 	</div>
+
 </template>
 
 <script>
 import ShareIcn from '../components/detailShareIcn.vue'
 	export default{
 		name:'sharePanel',
-		data:{
+		data:function(){
 			return {
 				icnInfo:[{
-						imgSrc:'../assets//20_share_wechat2.png',
+						imgSrc:'/static/img/20_share_wechat2.png',
 						msg:'微信'
 					},{
-						imgSrc:'../assets/19_share_wechat.png',
+						imgSrc:'/static/img/19_share_wechat.png',
 						msg:'朋友圈'
 					},{
-						imgSrc:'../assets/21_share_sina.png',
+						imgSrc:'/static/img/21_share_sina.png',
 						msg:'新浪微博'
 					},{
-						imgSrc:'../assets/18_share_qq.png',
+						imgSrc:'/static/img/18_share_qq.png',
 						msg:'QQ'
 					},{
 						imgSrc:'',
@@ -36,10 +41,43 @@ import ShareIcn from '../components/detailShareIcn.vue'
 		},
 		components:{
 			ShareIcn
+		},
+		methods:{
+			cancelShare:function(){
+				this.$store.dispatch("outShare");
+			}
 		}
 	}
 </script>
 
 <style scoped>
-	
+	.share-panel{
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 15px;
+		background-color: #FFFFFF;
+		border-radius: 6px;
+		padding: 0;
+		margin: 0 auto;
+		width: 350px;
+		height: 220px;
+		text-align: center;
+		z-index: 999;
+	}
+	.line{
+		height: 1px;
+		width: 325px;
+		background-color: #E2E4E6;
+		margin: 0 auto;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	.cancel{
+		color: #FF0000;
+		font-size: 16px;
+	}
+	.icn{
+		margin: 20px 25px;
+	}
 </style>

@@ -8,7 +8,9 @@ const state = {
 	news:true,
 	orders:false,
 	me:false,
-	index:true
+	index:true,
+	shareState:false,//分享界面是否显示
+	showComment:false//评论区界面是否显示
 }
 
 //初始化 mutations
@@ -33,6 +35,18 @@ const mutations = {
 	},
 	In_Index(state){
 		state.index = true;
+	},
+	IN_Share(state){
+		state.shareState = true;
+	},
+	Out_Share(state){
+		state.shareState = false;
+	},
+	IN_Comment(state){
+		state.showComment = true;
+	},
+	Out_Comment(state){
+		state.showComment = false;
 	}
 }
 
@@ -52,6 +66,18 @@ const actions ={
 	},
 	inIndex({commit}){
 		commit('In_Index');
+	},
+	inShare({commit}){
+		commit('IN_Share');
+	},
+	outShare({commit}){
+		commit('Out_Share');
+	},
+	inComment({commit}){
+		commit('IN_Comment');
+	},
+	outComment({commit}){
+		commit('Out_Comment');
 	}
 }
 
