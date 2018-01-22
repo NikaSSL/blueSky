@@ -19,7 +19,7 @@
 				</div>
 			</div>
 		</div>
-		<news-content :newContent="content"></news-content>
+		<news-content></news-content>
 	</div>
 </template>
 
@@ -27,22 +27,10 @@
 import NewsContent from '../components/detailNewsContent.vue'
 	export default{
 		name:'detailContent',
-		data(){
-			return {
-				news:'',
-				content:[]
+		computed:{
+			news:function(){
+				return this.$store.state.newInfo;
 			}
-		},
-		methods:{
-			getData(){
-				this.$ajax.get("/api/newsContent").then((response) => {
-					this.news = response.data.data;
-					this.content = this.news.content;
-				})
-			}
-		},
-		created(){
-			this.getData();
 		},
 		components:{
 			NewsContent

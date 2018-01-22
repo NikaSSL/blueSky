@@ -8,11 +8,11 @@
 				<write-comment></write-comment>
 			</div>
 			<div class="col-xs-5 col-xs-offset-1 box2">
-				<div :class="comment?'col-xs-7':'col-xs-4'">
-					<i class="icn" :class="comment?'comment2':'comment1'" @click="toggleComment"></i>
-					<span v-show="comment" class="blue-style">正文</span>
+				<div :class="this.$store.state.comment?'col-xs-7':'col-xs-4'">
+					<i class="icn" :class="this.$store.state.comment?'comment2':'comment1'" @click="toggleComment"></i>
+					<span v-show="this.$store.state.comment" class="blue-style">正文</span>
 				</div>
-				<div class="col-xs-4" v-show="!comment">
+				<div class="col-xs-4" v-show="!this.$store.state.comment">
 					<i class="icn" :class="uncollect?'collect1':'collect2'" @click="toggleCollect"></i>
 				</div>
 				<div class="col-xs-4">
@@ -29,10 +29,14 @@ import WriteComment from '../components/writeComment.vue'
 		name:'detailBottom',
 		data:function(){
 			return{
-				uncollect:true,
-				comment:true
+				uncollect:true
 			}
 		},
+		// computed:{
+		// 	comment:function(){
+		// 		return this.commentState;
+		// 	}
+		// },
 		components:{
 			WriteComment
 		},

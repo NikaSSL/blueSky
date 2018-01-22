@@ -3,12 +3,19 @@
 
 <template>
 	<div>
+		<!-- 头部组件-返回主页 -->
 		<div class="header">
 			<router-link class="back" to="/news" @click="backHome"></router-link>
 		</div>
-		<detail-content></detail-content>
+		<!-- 评论组件 -->
+		<comment-list v-show="this.$store.state.comment"></comment-list>
+		<!-- 新闻详细内容 -->
+		<detail-content v-show="!this.$store.state.comment"></detail-content>
+		<!-- 底部组件 -->
 		<detail-bottom v-show="!this.$store.state.shareState"></detail-bottom>
+		<!-- 分享面板 -->
 		<share-panel v-show="this.$store.state.shareState"></share-panel>
+		<!-- 蒙版 -->
 		<div class="cover" v-show="this.$store.state.shareState" @click="hide"></div>
 	</div>
 </template>
@@ -18,22 +25,35 @@
 	import DetailContent from '../components/detailNew.vue'
 	import DetailBottom from '../components/detailBottom.vue'
 	import SharePanel from '../components/detailShare.vue'
+	import CommentList from '../components/detailComment.vue'
 	export default{
 		name:'newDetail',
+		data:function(){
+			return {
+				comment: false
+			}
+		},
 		components:{
 			DetailContent,
 			DetailBottom,
-			SharePanel
+			SharePanel,
+			CommentList
 		},
 		methods:{
-			backHome:function(){
+			backHome:function(){//返回主页修改inIndex，显示主页底部导航
 				this.$store.dispatch("inIndex");
 			},
-			hide:function(){
+			hide:function(){//修改outShare，退出分享界面
 				this.$store.dispatch('outShare');
+			},
+			getData(){//获取新闻相关信息存入store
+				this.$ajax.get("/api/newsContent").then((response) => {
+					this.$store.commit('Set_NewInfo',response.data.data);
+				})
 			}
 		},
 		created(){
+			this.getData();
 			this.$store.dispatch("inDetail");
 		}
 	}

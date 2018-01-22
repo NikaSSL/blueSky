@@ -1,3 +1,7 @@
+
+<!-- 评论组件——单个评论 -->
+
+
 <template>
 	<div class="container">
 		<div class="row">
@@ -28,7 +32,7 @@
 		name:'commentItem',
 		data:function(){
 			return{
-				good:false;
+				good:false
 			}
 		},
 		methods:{

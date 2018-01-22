@@ -2,8 +2,10 @@
 <script>
 	export default{
 		name:'newsContent',
-		props:{
-			newContent: Array
+		computed:{
+			newContent:function(){
+				return this.$store.state.newInfo.content?this.$store.state.newInfo.content:[]
+			}
 		},
 		render(createElement){
 			let arr = [];

@@ -10,7 +10,8 @@ const state = {
 	me:false,
 	index:true,
 	shareState:false,//分享界面是否显示
-	showComment:false//评论区界面是否显示
+	newInfo:{},//选中新闻的相关数据
+	comment:false//评论板块是否显示
 }
 
 //初始化 mutations
@@ -42,11 +43,14 @@ const mutations = {
 	Out_Share(state){
 		state.shareState = false;
 	},
-	IN_Comment(state){
-		state.showComment = true;
+	Set_NewInfo(state,newInfo){
+		state.newInfo = newInfo;
 	},
-	Out_Comment(state){
-		state.showComment = false;
+	In_comment(state){
+		state.comment = true;
+	},
+	Out_comment(state){
+		state.comment = false;
 	}
 }
 
@@ -73,11 +77,14 @@ const actions ={
 	outShare({commit}){
 		commit('Out_Share');
 	},
+	setNewInfo({commit}){
+		commit('Set_NewInfo');
+	},
 	inComment({commit}){
-		commit('IN_Comment');
+		commit('In_comment');
 	},
 	outComment({commit}){
-		commit('Out_Comment');
+		commit('Out_comment');
 	}
 }
 
