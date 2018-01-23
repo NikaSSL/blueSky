@@ -8,11 +8,11 @@
 				<write-comment></write-comment>
 			</div>
 			<div class="col-xs-5 col-xs-offset-1 box2">
-				<div :class="this.$store.state.comment?'col-xs-7':'col-xs-4'">
-					<i class="icn" :class="this.$store.state.comment?'comment2':'comment1'" @click="toggleComment"></i>
-					<span v-show="this.$store.state.comment" class="blue-style">正文</span>
+				<div :class="comment?'col-xs-7':'col-xs-4'">
+					<i class="icn" :class="comment?'comment2':'comment1'" @click="toggleComment"></i>
+					<span v-show="comment" class="blue-style">正文</span>
 				</div>
-				<div class="col-xs-4" v-show="!this.$store.state.comment">
+				<div class="col-xs-4" v-show="!comment">
 					<i class="icn" :class="uncollect?'collect1':'collect2'" @click="toggleCollect"></i>
 				</div>
 				<div class="col-xs-4">
@@ -32,25 +32,23 @@ import WriteComment from '../components/writeComment.vue'
 				uncollect:true
 			}
 		},
-		// computed:{
-		// 	comment:function(){
-		// 		return this.commentState;
-		// 	}
-		// },
+		computed:{
+			comment:function(){
+				return this.$store.state.comment;
+			}
+		},
 		components:{
 			WriteComment
 		},
 		methods:{
-			share:function(){
-				//弹出分享面板
+			share:function(){//分享
 				this.$store.dispatch("inShare");
 			},
-			toggleCollect:function(){
+			toggleCollect:function(){//收藏
 				this.uncollect = !(this.uncollect);
 			},
-			toggleComment:function(){
-				//展示评论区
-				this.comment = !(this.comment);
+			toggleComment:function(){//评论
+				this.$store.dispatch('toggleComment');
 			}
 		} 
 	}

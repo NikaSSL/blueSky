@@ -3,18 +3,18 @@
 		<head-ban></head-ban>
 		<!-- 利用v-if判断是否加载 -->
 		<router-link to="/newDetail">查看新闻详情</router-link>
-		<news-new v-for="(item,index) in newsList" v-if="item" :item="item" :key="index"></news-new>
+		<new-item v-for="(item,index) in newsList" v-if="item" :item="item" :key="index"></new-item>
 	</div>
 </template>
 
 <script>
-import HeadBan from '../components/header.vue'
-import NewsNew from '../components/newsNew.vue'
+import HeadBan from '../components/indexHeader.vue'
+import NewItem from '../components/newsListItem.vue'
 	export default{
 		name:'news',
 		components:{
 			HeadBan,
-			NewsNew
+			NewItem
 		},
 		data(){
 			return {

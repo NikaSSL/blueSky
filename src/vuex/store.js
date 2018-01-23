@@ -11,7 +11,8 @@ const state = {
 	index:true,
 	shareState:false,//分享界面是否显示
 	newInfo:{},//选中新闻的相关数据
-	comment:false//评论板块是否显示
+	comment:false,//评论板块是否显示
+	writeComment:false//评论输入面板是否显示
 }
 
 //初始化 mutations
@@ -46,11 +47,11 @@ const mutations = {
 	Set_NewInfo(state,newInfo){
 		state.newInfo = newInfo;
 	},
-	In_comment(state){
-		state.comment = true;
+	Toggle_comment(state){
+		state.comment = !state.comment;
 	},
-	Out_comment(state){
-		state.comment = false;
+	Toggle_write(state){
+		state.writeComment = !state.writeComment;
 	}
 }
 
@@ -80,11 +81,11 @@ const actions ={
 	setNewInfo({commit}){
 		commit('Set_NewInfo');
 	},
-	inComment({commit}){
-		commit('In_comment');
+	toggleComment({commit}){
+		commit('Toggle_comment');
 	},
-	outComment({commit}){
-		commit('Out_comment');
+	toggleWrite({commit}){
+		commit('Toggle_write');
 	}
 }
 

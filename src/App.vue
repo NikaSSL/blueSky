@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import FooterTab from './components/footerTab.vue'
+import FooterTab from './components/indexFooter.vue'
 import store from './vuex/store'
 export default {
   name: 'app',

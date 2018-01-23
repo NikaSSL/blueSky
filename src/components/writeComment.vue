@@ -1,14 +1,25 @@
 <template>
 	<div class="box">
 		<i class="write-img"></i>
-		<span>写评论</span>
+		<span @click="comment">写评论</span>
 	</div>
 </template>
 
 
 <script>
 	export default{
-		name:'writeComment'
+		name:'writeComment',
+		data:function(){
+			return {
+				commentState:false
+			}
+		},
+		methods:{
+			comment:function(){
+				//弹出评论输入面板,调出蒙板
+				this.$store.dispatch('toggleWrite');
+			}
+		}
 	}
 </script>
 

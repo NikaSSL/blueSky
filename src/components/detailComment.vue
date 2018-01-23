@@ -3,9 +3,9 @@
 
 
 <template>
-	<div>
-		<span>全部评论({{number}})</span>
-		<comment-item v-for="(item,index) in items" :key="index"></comment-item>		
+	<div class="list-box">
+		<span class="decorate">全部评论({{number}})</span>
+		<comment-item v-for="(item,index) in items" :key="index" :item='item'></comment-item>		
 	</div>
 </template>
 
@@ -16,15 +16,22 @@
 		components:{
 			CommentItem
 		},
-		data:function(){
-			return {
-				items:this.$store.state.newInfo.comments?this.$store.state.newInfo.comments:[]
-			}
-		},
 		computed:{
+			items:function(){
+				return this.$store.state.newInfo.comments?this.$store.state.newInfo.comments:[];
+			},
 			number:function(){
 				return this.items.length;
 			}
 		}
 	}
 </script>
+
+<style scoped>
+	.list-box{
+		margin-bottom: 55px;
+	}
+	.decorate{
+		margin-left: 15px;
+	}
+</style>

@@ -15,11 +15,11 @@
 					<span class="time">{{news.dateTme}}</span>
 				</div>
 				<div class="col-xs-2 col-xs-offset-3 order-box">
-					<span class="order">订阅</span>
+					<span :class="['order',orderState?'unactive':'active']" @click="toggleOrder">订阅</span>
 				</div>
 			</div>
 		</div>
-		<news-content></news-content>
+		<news-content v-if="!this.$store.state.comment"></news-content>
 	</div>
 </template>
 
@@ -27,6 +27,11 @@
 import NewsContent from '../components/detailNewsContent.vue'
 	export default{
 		name:'detailContent',
+		data:function(){
+			return {
+				orderState:false
+			}
+		},
 		computed:{
 			news:function(){
 				return this.$store.state.newInfo;
@@ -34,6 +39,13 @@ import NewsContent from '../components/detailNewsContent.vue'
 		},
 		components:{
 			NewsContent
+		},
+		methods:{
+			toggleOrder:function(){
+				this.orderState = !this.orderState;
+				//订阅或取消订阅
+				//...
+			}
 		}
 	}
 </script>
@@ -41,7 +53,7 @@ import NewsContent from '../components/detailNewsContent.vue'
 
 <style scoped>
 	.outer-box{
-		margin: 55px 6px;
+		margin: 55px 6px 10px 6px;
 	}
 	.news-title{
 		font-size: 21px;
@@ -92,7 +104,6 @@ import NewsContent from '../components/detailNewsContent.vue'
 		top: -4px;
 	}
 	.order{
-		background-color: #0E8EFA;
 		width: 53px;
 		height: 26px;
 		color: #FFFFFF;
@@ -100,7 +111,13 @@ import NewsContent from '../components/detailNewsContent.vue'
 		display: block;
 		line-height: 26px;
 		border-radius: 3px;
-		text-align: center;
+		text-align: center;		
+	}
+	.active{
+		background-color: #A5A5A5;
+	}
+	.unactive{
+		background-color: #008CFF;
 	}
 	.order-box{
 		margin-top: 5px;

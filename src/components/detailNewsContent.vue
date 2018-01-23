@@ -21,7 +21,11 @@
 					arr.push(createElement(item.type,item.text));
 				}
 			});
-			return createElement('div',arr);
+			return createElement('div',{
+				attrs:{
+					class:'content-box'
+				}
+			},arr);
 		}
 	}
 </script>
@@ -36,5 +40,8 @@
 		color: #333333;
 		letter-spacing: .5px;
 		line-height: 24px;
+	}
+	.content-box{
+		margin-bottom: 55px;
 	}
 </style>
