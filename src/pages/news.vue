@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="outer-box">
 		<head-ban></head-ban>
 		<!-- 利用v-if判断是否加载 -->
 		<router-link to="/newDetail">查看新闻详情</router-link>
@@ -38,3 +38,9 @@ import NewItem from '../components/newsListItem.vue'
 		}
 	}
 </script>
+
+<style scoped>
+	.outer-box{
+		padding-top: 63px;
+	}
+</style>

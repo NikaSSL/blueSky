@@ -5,17 +5,17 @@
 	<div class="container-fluid nav-box">
 		<div class="row">
 			<div class="col-xs-4">
-				<router-link class="nav-item" to="/news">
+				<router-link :class="['nav-item',news?'':'grey']" to="/news">
 					<i :class="[news?'news1':'news']"></i>新闻
 				</router-link>
 			</div>
 			<div class="col-xs-4">
-				<router-link class="nav-item" to="/orders">
+				<router-link :class="['nav-item',orders?'':'grey']" to="/orders">
 					<i :class="[orders?'orders1':'orders']"></i>订阅
 				</router-link>
 			</div>
 			<div class="col-xs-4">
-				<router-link class="nav-item" to="/me">
+				<router-link :class="['nav-item',me?'':'grey']" to="/me">
 					<i :class="[me?'me1':'me']"></i>我
 				</router-link>
 			</div>
@@ -52,11 +52,13 @@
         left: 0;
         background: #fff;
         border-top: 1px solid #f0f0f0;
+        font-size: 12px;
     }
-
+	.grey{
+	    color: #A5A5A5;	
+	}
     .nav-item{
 	    flex:1;
-	    color: #000;
 	    height:30px;
 	    text-align:center;
 	    display:block;

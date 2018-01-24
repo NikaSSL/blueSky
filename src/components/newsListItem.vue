@@ -10,8 +10,8 @@
 					<span v-if="item.top">置顶</span>
 					<span>{{item.dateTme}}</span>
 					<span>{{item.source}}</span>
-					<span>{{item.comments[0].count}}</span>
-					<span>{{item.comments[0].thumbUp}}</span>
+					<span><i class="icn count"></i>{{item.comments[0].count}}</span>
+					<span><i class="icn thumbUp"></i>{{item.comments[0].thumbUp}}</span>
 				</div>
 				<div class="col-xs-4">
 					<img v-bind:src='item.image.url' class="img-small">
@@ -31,8 +31,8 @@
 					<span v-if="item.top">置顶</span>
 					<span>{{item.dateTme}}</span>
 					<span>{{item.source}}</span>
-					<span>{{item.comments[0].count}}</span>
-					<span>{{item.comments[0].thumbUp}}</span>
+					<span><i class="icn count"></i>{{item.comments[0].count}}</span>
+					<span><i class="icn thumbUp"></i>{{item.comments[0].thumbUp}}</span>
 				</div>
 			</div>			
 		</div>
@@ -71,5 +71,23 @@
 		font-size: 16px;
 		font-weight: bold;
 		display: block;
+		color: #333333;
+	}
+	.icn{
+		width: 11px;
+		height: 11px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+	.count{
+		background-image: url('../assets/5_icon_comment.png');
+	}
+	.thumbUp{
+		background-image: url('../assets/6_icon_good.png');
+	}
+	span{
+		font-size: 11px;
+		color: #A5A5A5;
 	}
 </style>

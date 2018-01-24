@@ -5,7 +5,7 @@
 	<div>
 		<!-- 头部组件-返回主页 -->
 		<div class="header">
-			<router-link class="back" to="/news" @click="backHome"></router-link>
+			<router-link class="back" to="/news" @click.native="backHome"></router-link>
 		</div>
 		<!-- 新闻详细内容 -->
 		<detail-content></detail-content>
@@ -70,7 +70,7 @@
 		},
 		created(){
 			this.getData();
-			this.$store.dispatch("inDetail");
+			this.$store.dispatch("outIndex");
 		}
 	}
 </script>

@@ -12,7 +12,8 @@ const state = {
 	shareState:false,//分享界面是否显示
 	newInfo:{},//选中新闻的相关数据
 	comment:false,//评论板块是否显示
-	writeComment:false//评论输入面板是否显示
+	writeComment:false,//评论输入面板是否显示
+	searchResult:{}//搜索结果
 }
 
 //初始化 mutations
@@ -32,7 +33,7 @@ const mutations = {
 		state.orders = false;
 		state.me = true;			
 	},
-	IN_Detail(state){
+	Out_Index(state){
 		state.index = false;
 	},
 	In_Index(state){
@@ -52,6 +53,9 @@ const mutations = {
 	},
 	Toggle_write(state){
 		state.writeComment = !state.writeComment;
+	},
+	Set_searchResult(state,result){//存入搜索结果
+		state.searchResult = result;
 	}
 }
 
@@ -66,8 +70,8 @@ const actions ={
 	inMe({commit}){
 		commit('IN_ME');
 	},
-	inDetail({commit}){
-		commit('IN_Detail');
+	outIndex({commit}){
+		commit('Out_Index');
 	},
 	inIndex({commit}){
 		commit('In_Index');

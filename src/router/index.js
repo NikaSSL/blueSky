@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Me from '@/pages/me'
 import News from '@/pages/news'
 import Orders from '@/pages/orders'
-import newDetail from '@/pages/newDetail'
+import NewDetail from '@/pages/newDetail'
+import Search from '@/pages/search'
 
 Vue.use(Router)
 
@@ -19,7 +20,10 @@ export default new Router({
     	component:Orders
     },{
       path:'/newDetail',
-      component:newDetail
+      component:NewDetail
+    },{
+      path:'/search',
+      component:Search
     }
   ]
 })
