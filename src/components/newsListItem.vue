@@ -52,6 +52,7 @@
 		width: 100%;
 		margin-top: 10px;
 		margin-bottom: 5px;
+		text-align: left;
 	}
 	.img-small{
 		width: 100px;

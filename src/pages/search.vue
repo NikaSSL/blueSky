@@ -5,12 +5,13 @@
 	<div class="outer-box">
 
 		<div class="header">
-			<input type="text" placeholder="  请输入关键字" autofocus="autofocus" class="search-input">
+			<input type="text" placeholder="请输入关键字" class="search-input" @keyup.enter="search" v-model="searchWords" autofocus="autofocus">
+			<i class="delete" v-show="searchWords" @click="empty"></i>
 			<router-link to='/news' @click.native="backHome" class="black">取消</router-link>
 		</div>
 
 		<!-- 搜索时，展示热门搜索关键字 -->
-		<div v-show="searchState" class="default">
+		<div v-show="searchStatus" class="default">
 			<span class="search-key">热门搜索关键字</span>
 			<div v-for="(item,index) in hotKeys" :key="index" class="hot-key">
 				<span>{{item}}</span>
@@ -18,7 +19,7 @@
 		</div>
 		
 		<!-- 搜索后，展示搜索结果 -->
-		<seach-content v-if="!searchState"></seach-content>
+		<search-content v-if="!searchStatus"></search-content>
 
 	</div>
 </template>
@@ -32,21 +33,41 @@
 		},
 		data:function(){
 			return {
-				searchState:true,
-				hotKeys:['招商人和','科技时事','双十二纪念日','深圳时事','设计资讯']
+				searchStatus:true,//搜索时为true,初始为true
+				hotKeys:['招商人和','科技时事','双十二纪念日','深圳时事','设计资讯'],//以后动态获取
+				searchWords:''
 			}
 		},
 		methods:{
 			backHome:function(){//返回新闻首页
 				this.$store.dispatch('inIndex');
+			},
+			search:function(){//获取搜索结果
+				this.$ajax.get("/api/newsList").then((response) => {
+					this.$store.commit('Set_searchResult',response.data.data)
+				});
+				this.searchStatus = false;	
+			},
+			empty:function(){//清空输入框
+				this.searchWords = '';
 			}
 		}
+		// ,directives:{
+		// 	focus:{
+		// 		inserted:function(el,{value}){
+		// 			if (value) {
+		// 			  el.focus();          
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 </script>
 
 <style scoped>
 	.outer-box{
 		width: 100%;
+		height: 100%
 	}
 	.black{
 		color: #333333;
@@ -90,5 +111,16 @@
 		margin-right: 10px;
 		height: 30px;
 		line-height: 30px;
+	}
+	.delete{
+		background-image: url('../assets/28_delete.png');
+		width: 16px;
+		height: 16px;
+		display: block;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		position: absolute;
+		top: 28px;
+		right: 100px;
 	}
 </style>
