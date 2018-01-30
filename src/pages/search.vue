@@ -67,26 +67,26 @@
 <style scoped>
 	.outer-box{
 		width: 100%;
-		height: 100%
+		height: 100%;
+		font-size: 0.28rem;
 	}
 	.black{
 		color: #333333;
 	}
 	.header{
-		width: 90%;
-		height: 45px;
+		width: 100%;
 		margin: 0 auto;
-		margin-top: 20px;
-		margin-bottom: 10px;
-		font-size: 14px;
+		margin-top: 0.5rem;
+		margin-bottom: 0.4rem;
 	}
 	.search-input{
-		width: 80%;
-		height: 35px;
+		width: 6rem;
+		height: 0.7rem;
 		background-color: #F1F3F5;
-		border-radius: 5px;
+		border-radius: 0.1rem;
 		color: #A5A5A5;
-		margin-right: 15px
+		margin-right: 0.3rem;
+		margin-left: 0.3rem;
 	}
 	.default{
 		width: 90%;
@@ -95,32 +95,33 @@
 	.search-key{
 		font-weight: bold;
 		display: block;
+		margin-bottom: 0.2rem;
 	}
 	.hot-key{
 		display: inline-block;
 		color: #A5A5A5;
-		border-radius: 50px;
+		border-radius: 1rem;
 		border: 1px solid #A5A5A5;
-		height: 30px;
-		margin: 15px 25px 0 0;
+		height: 0.6rem;
+		margin: 0 0.5rem 0.3rem 0;
 	}
 	.hot-key span{
 		display: block;
 		margin: 0 auto;
-		margin-left: 10px;
-		margin-right: 10px;
-		height: 30px;
-		line-height: 30px;
+		margin-left: 0.2rem;
+		margin-right: 0.2rem;
+		height: 0.6rem;
+		line-height: 0.6rem;
 	}
 	.delete{
 		background-image: url('../assets/28_delete.png');
-		width: 16px;
-		height: 16px;
+		width: 0.32rem;
+		height: 0.32rem;
 		display: block;
 		background-size: 100%;
 		background-repeat: no-repeat;
 		position: absolute;
-		top: 28px;
-		right: 100px;
+		top: 0.7rem;
+		right: 1.5rem;
 	}
 </style>

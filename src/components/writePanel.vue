@@ -25,27 +25,29 @@
 		left: 0;
 		bottom: 0;
 		background-color: #FFFFFF;
-		width: 100%;
+		width: 7.5rem;
+		height: 2.7rem;
+		font-size: 0.32rem;
+		color:  #A5A5A5;
 	}
 	.write-area{
 		display: block;
-		width: 90%;
-		height: 60px;
+		width: 6.9rem;
+		height: 1.2rem;
 		margin: 0 auto;
-		margin-top: 15px;
-		margin-bottom: 15px;
+		margin-top: 0.3rem;
+		margin-bottom: 0.3rem;
+		background-color:  #F1F3F5;
 	}
 	.send{
 		display: block;
-		width: 90%;
-		height: 37px;
-		font-size: 16px;
+		width: 6.9rem;
+		height: 0.74rem;
 		color: #A5A5A5;
 		border: 1px solid #A5A5A5;
-		border-radius: 2px;
+		border-radius: 0.04rem;
 		margin: 0 auto;
-		margin-bottom: 15px;
 		text-align: center;
-		line-height: 37px;
+		line-height: 0.74rem;
 	}
 </style>

@@ -55,29 +55,28 @@ import ShareIcn from '../components/detailShareIcn.vue'
 		position: fixed;
 		left: 0;
 		right: 0;
-		bottom: 15px;
+		bottom: 0.29rem;
 		background-color: #FFFFFF;
-		border-radius: 6px;
+		border-radius: 0.12rem;
 		padding: 0;
 		margin: 0 auto;
-		width: 350px;
-		height: 220px;
+		width: 6.9rem;
+		height: 4.43rem;
 		text-align: center;
 		z-index: 999;
 	}
 	.line{
 		height: 1px;
-		width: 325px;
+		width: 6.5rem;
 		background-color: #E2E4E6;
 		margin: 0 auto;
-		margin-top: 20px;
-		margin-bottom: 10px;
+		margin-top: 0.3rem;
+		margin-bottom: 0.29rem;
 	}
 	.cancel{
+		display: block;
 		color: #FF0000;
-		font-size: 16px;
-	}
-	.icn{
-		margin: 20px 25px;
+		font-size: 0.32rem;
+		margin-top: 0.29rem;
 	}
 </style>

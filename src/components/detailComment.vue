@@ -29,9 +29,11 @@
 
 <style scoped>
 	.list-box{
+		margin-top: -0.4rem;
 		margin-bottom: 55px;
 	}
 	.decorate{
-		margin-left: 15px;
+		margin-left: 0.3rem;
+		font-size: 0.26rem;
 	}
 </style>

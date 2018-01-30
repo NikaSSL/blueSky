@@ -4,7 +4,7 @@
 <template>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-xs-12 word-style">
 			<i class="collect-btn"></i>	
 			收藏与历史		
 		</div>
@@ -15,13 +15,17 @@
 
 <style scoped>
 	.collect-btn{
-		width: 55px;
-		height: 55px;
+		width: 1.1rem;
+		height: 1.1rem;
 		display: block;
 		background-image: url("../assets/24_collection.png");
 		background-repeat: no-repeat;
 		background-size: 100%;
 		margin-left: auto;
 		margin-right: auto;
+	}
+	.word-style{
+		text-align: center;
+		font-size: 0.24rem;
 	}
 </style>

@@ -12,7 +12,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-6">
+			<div class="col-xs-4 col-xs-offset-2 ">
 				<span>夜间模式</span>
 			</div>
 			<div class="col-xs-6">
@@ -30,8 +30,9 @@
 
 <style scoped>
 	.box{
-		border-top: 5px solid #F1F3F5;
-		border-bottom: 5px solid #F1F3F5;
+		border-top: 0.1rem solid #F1F3F5;
+		border-bottom: 0.1rem solid #F1F3F5;
+		font-size: 0.28rem;
 	}
 	.line-space{
 		border-bottom: 1px solid #F1F3F5; 
@@ -43,8 +44,8 @@
 		background-repeat: no-repeat;
 		background-size: 100%;
 		display: block;
-		width: 20px;
-		height: 20px;
+		width: 0.32rem;
+		height: 0.32rem;
 		float: right;
 	}
 </style>

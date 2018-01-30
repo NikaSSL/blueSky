@@ -2,16 +2,19 @@
 <!-- 新闻列表的单个新闻项 -->
 
 <template>
-	<div>
+	<router-link to="/newDetail">
 		<div class="container new-item" v-if="item.image.position==='right'">
 			<div class="row">
-				<div class="col-xs-8">
+				<div class="col-xs-8 word-box">
 					<span class="item-title">{{item.titile}}</span class="item-title">
-					<span v-if="item.top">置顶</span>
-					<span>{{item.dateTme}}</span>
-					<span>{{item.source}}</span>
-					<span><i class="icn count"></i>{{item.comments[0].count}}</span>
-					<span><i class="icn thumbUp"></i>{{item.comments[0].thumbUp}}</span>
+					<div class="small-word1">
+						<span v-if="item.top">置顶</span>
+						<span>{{dateTme}}</span>
+						<span>{{item.source}}</span>
+						<span><i class="icn count"></i>{{item.comments[0].count}}</span>
+						<span><i class="icn thumbUp"></i>{{item.comments[0].thumbUp}}</span>
+					</div>
+
 				</div>
 				<div class="col-xs-4">
 					<img v-bind:src='item.image.url' class="img-small">
@@ -27,9 +30,9 @@
 				<div class="col-xs-12">
 					<img v-bind:src='item.image.url' class="img-big">
 				</div>
-				<div class="col-xs-12">
+				<div class="col-xs-12 small-word2">
 					<span v-if="item.top">置顶</span>
-					<span>{{item.dateTme}}</span>
+					<span>{{dateTme}}</span>
 					<span>{{item.source}}</span>
 					<span><i class="icn count"></i>{{item.comments[0].count}}</span>
 					<span><i class="icn thumbUp"></i>{{item.comments[0].thumbUp}}</span>
@@ -37,46 +40,53 @@
 			</div>			
 		</div>
 		<div class="line"></div>
-	</div>
+	</router-link>
 </template>   
 
 <script>
 	export default{
 		name:'newsNew',
-		props:['item']
+		props:['item'],
+		computed:{
+			dateTme:function(){
+				return this.item.dateTme.split(' ')[0];
+			}
+		}
 	}
 </script>
 
 <style scoped>
 	.new-item{
 		width: 100%;
-		margin-top: 10px;
-		margin-bottom: 5px;
+		margin-top: 0.4rem;
+		margin-bottom: 0.4rem;
 		text-align: left;
 	}
 	.img-small{
-		width: 100px;
-		height: 75px;
+		width: 2rem;
+		height: 1.5rem;
 	}
 	.img-big{
-		width: 345px;
-		height: 135px;
+		width: 6.9rem;
+		height: 2.7rem;
+		margin-top: 0.2rem;
 	}
 	.line{
-		width: 95%;
+		width: 96%;
 		height: 1px;
 		background-color: #E2E4E6;
 		margin: 0 auto;
 	}
 	.item-title{
-		font-size: 16px;
+		font-size: 0.32rem;
 		font-weight: bold;
 		display: block;
 		color: #333333;
+		line-height: 0.42rem;
 	}
 	.icn{
-		width: 11px;
-		height: 11px;
+		width: 0.22rem;
+		height: 0.22rem;
 		display: inline-block;
 		background-repeat: no-repeat;
 		background-size: 100%;
@@ -87,8 +97,15 @@
 	.thumbUp{
 		background-image: url('../assets/6_icon_good.png');
 	}
+	.small-word1{
+		margin-top: 0.44rem;
+	}
+	.small-word2{
+		margin-top: 0.15rem;
+	}
 	span{
-		font-size: 11px;
+		font-size: 0.22rem;
 		color: #A5A5A5;
+		margin-right: 0.1rem;
 	}
 </style>

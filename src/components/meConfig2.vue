@@ -44,8 +44,8 @@
 		background-repeat: no-repeat;
 		background-size: 100%;
 		display: block;
-		width: 20px;
-		height: 20px;
+		width: 0.32rem;
+		height: 0.32rem;
 		float: right;
 	}
 </style>

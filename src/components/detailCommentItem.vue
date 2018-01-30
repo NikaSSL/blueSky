@@ -18,7 +18,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<p class="content">{{item.text}}</p>
-						<span>{{item.dateTime}}</span>
+						<span class="date-time">{{item.dateTime}}</span>
 					</div>
 				</div>
 			</div>
@@ -48,18 +48,19 @@
 <style scoped>
 	.icon{
 		border-radius: 50%;
-		width: 27px;
-		height: 27px;
+		width: 0.54rem;
+		height: 0.54rem;
 	}
 	.thumb{
 		display: inline-block;
-		width: 13px;
-		height: 13px;
+		width: 0.26rem;
+		height: 0.26rem;
 		background-size: 100%;
 		background-repeat: no-repeat;
 	}
 	.right{
 		text-align: right;
+		font-size: 0.26rem;
 	}
 	.good1{
 		background-image: url('../assets/6_icon_good2.png');
@@ -68,13 +69,13 @@
 		background-image: url('../assets/6_icon_good.png');
 	}
 	.name{
-		font-size: 13px;
+		font-size: 0.26rem;
 		font-weight: bold;
 	}
 	.content{
-		font-size: 16px;
-		letter-spacing: 0.35px;
-		line-height: 25px;
+		font-size: 0.32rem;
+		letter-spacing: 0.007rem;
+		line-height: 0.5rem;
 	}
 	.decorate{
 		border-bottom: 1px solid #E2E4E6;
@@ -82,5 +83,9 @@
 	}
 	.item-box{
 		margin-top: 15px;
+	}
+	.date-time{
+		font-size: 0.22rem;
+		color: #A5A5A5;
 	}
 </style>

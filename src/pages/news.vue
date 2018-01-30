@@ -2,7 +2,6 @@
 	<div class="outer-box">
 		<head-ban></head-ban>
 		<!-- 利用v-if判断是否加载 -->
-		<router-link to="/newDetail">查看新闻详情</router-link>
 		<new-item v-for="(item,index) in newsList" v-if="item" :item="item" :key="index"></new-item>
 	</div>
 </template>
@@ -41,6 +40,7 @@ import NewItem from '../components/newsListItem.vue'
 
 <style scoped>
 	.outer-box{
-		padding-top: 63px;
+		padding-top: 1.31rem;
+		padding-bottom: 1rem;
 	}
 </style>

@@ -57,22 +57,23 @@ import WriteComment from '../components/writeComment.vue'
 <style scoped>
 	.box{
 		position: fixed;
-        height: 50px;
+        height: 1rem;
         width: 100%;
         bottom: 0;
         left: 0;
         border-top: 1px solid #E2E4E6;
         background-color: #FFFFFF;
+        font-size: 0.28rem;
 	}
 	.box1{
-		margin-top: 10px;
+		margin-top: 0.2rem;
 	}
 	.box2{
-		margin-top: 5px;
+		margin-top: 0.1rem;
 	}
 	.icn{
-		width: 20px;
-		height: 20px;
+		width: 0.4rem;
+		height: 0.4rem;
 		background-size: 100%;
 		background-repeat: no-repeat;
 		display: block;
@@ -95,7 +96,6 @@ import WriteComment from '../components/writeComment.vue'
 		background-image: url("../assets/13_share.png");
 	}
 	.blue-style{
-		font-size: 14px;
 		color: #008BFF;
 		display: block;
 		float: left;

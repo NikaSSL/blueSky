@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<h2>我的</h2>
+		<div class="header-box">
+			<span class="header-title">我的</span>
+		</div>
 		<me-login></me-login>
 		<me-collect></me-collect>
 		<me-config></me-config>
@@ -29,14 +31,18 @@ export default{
 </script>
 
 <style scoped>
-	h2{
-		font-size: 16px;
-		color: #333333;
-		height: 65px;
+	.header-title{
+		display: block;
 		width: 100%;
+		height: 1.31rem;
 		text-align: center;
-		margin: 0;
-		line-height: 65px;
-		border-bottom: 1px solid #f0f0f0;
+		font-weight: bold;
+		font-size: 0.32rem;
+		border-bottom: 1px solid #E2E4E6;;
+		padding-top: 0.70rem;
+	}
+	.header-box{
+		width: 100%;
+		background-color: #FFFFFF;
 	}
 </style>

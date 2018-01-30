@@ -19,16 +19,16 @@
 <style scoped>
 	.login-box{
 		width: 100%;
-		height: 205px;
+		height: 4.1rem;
 		background-image: url("../assets/22_img_login.png");
 		text-align: center;        
 		background-repeat: no-repeat;
         background-size: 100%;
 	}
 	.login{
-		width: 60px;
-		height: 60px;
+		width: 1.2rem;
+		height: 1.2rem;
 		border-radius: 50%;
-		margin-top: 30px;
+		margin-top: 0.8rem;
 	}
 </style>

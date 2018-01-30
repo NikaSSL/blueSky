@@ -18,10 +18,10 @@
 		display: block;
 		position: relative;
 		margin:0 auto;		
-		width: 40px;
-		height: 40px;
+		width: 0.8rem;
+		height: 0.8rem;
 		border-radius: 50%;
-		margin-top: 20px;
+		margin-top: 0.4rem;
 	}
 	.default{
 		background-color: #D7D7D7;
@@ -29,6 +29,6 @@
 	.box{
 		text-align: center;
 		color: #888888;
-		font-size: 12px;
+		font-size: 0.24rem;
 	}
 </style>

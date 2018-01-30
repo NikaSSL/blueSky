@@ -78,8 +78,8 @@
 <style scoped>
 	.header{
 		width: 100%;
-		height: 50px;
-		border-bottom: 1px solid #E2E4E6;
+		height: 1.31rem;
+		border-bottom: 0.01rem solid #E2E4E6;
 		position: fixed;
 		top: 0;
 		background-color: #FFFFFF;
@@ -89,13 +89,12 @@
 		background-image: url("../assets/4_icon_back.png");
 		background-size: 100%;
 		background-repeat: no-repeat;
-		width: 16px;
-		height: 16px;
-		margin-left: 20px;
+		width: 0.32rem;
+		height: 0.32rem;
+		margin-left: 0.3rem;
+		margin-top: 0.68rem;
 		display: block;
 		position: absolute;
-		top: 50%;
-		margin-top: -8px;
 	}
 	.cover{
 		background-color: rgba(0,0,0,0.50);

@@ -17,7 +17,7 @@
 							class:'content-img'
 						}
 					}));
-				}else{
+				}else if(item.type != 'h1'){//多余的标题，省略
 					arr.push(createElement(item.type,item.text));
 				}
 			});
@@ -32,14 +32,14 @@
 
 <style scoped>
 	.content-img{
-		width: 345px;
-		height: 135px;
+		width: 6.9rem;
+		height: 2.7rem;
 	}
 	p{
-		font-size: 16px;
+		font-size: 0.32rem;
 		color: #333333;
-		letter-spacing: .5px;
-		line-height: 24px;
+		letter-spacing: 0.006rem;
+		line-height: 0.48rem;
 	}
 	.content-box{
 		margin-bottom: 55px;

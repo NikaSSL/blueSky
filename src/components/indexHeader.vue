@@ -30,12 +30,12 @@
 	.header-title{
 		display: block;
 		width: 100%;
-		height: 64px;
+		height: 1.31rem;
 		text-align: center;
-		line-height: 64px;
 		font-weight: bold;
-		font-size: 16px;
+		font-size: 0.32rem;
 		border-bottom: 1px solid #F0F1F2;
+		padding-top: 0.70rem;
 	}
 	.header-box{
 		position: fixed;
@@ -48,12 +48,12 @@
 	.search{
 		display: block;
 		position: fixed;
-		top: 24px;
-		right: 15px;
+		top: 0.73rem;
+		right: 0.32rem;
 		background-image: url("../assets/3_icon_search.png");
 		background-size: 100%;
 		background-repeat: no-repeat;
-		width: 16px;
-		height: 16px;
+		width: 0.32rem;
+		height: 0.32rem;
 	}
 </style>

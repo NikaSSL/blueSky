@@ -28,6 +28,7 @@
 			},
 			flag:function(){//查询结果，找到为true，未找到为false
 				 return !!this.result[0];
+				 // return false;
 			}
 		}
 	}
@@ -38,13 +39,14 @@
 		text-align: center;
 	}
 	.item{
-		margin-top: 40%;
-		font-size: 16px;
+		margin-top: 3rem;
+		font-size: 0.32rem;
 		color: #A5A5A5;	
 	}
 	.item img{
 		display: block;
 		margin: 0 auto;
-		width: 40%;
+		width: 3rem;
+		height: 2.9rem;
 	}
 </style>

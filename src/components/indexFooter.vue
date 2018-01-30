@@ -46,26 +46,26 @@
 <style scoped>
     .nav-box{
         position: fixed;
-        height: 50px;
+        height: 1rem;
         width: 100%;
         bottom: 0;
         left: 0;
         background: #fff;
         border-top: 1px solid #f0f0f0;
-        font-size: 12px;
+        font-size: 0.22rem;
     }
 	.grey{
 	    color: #A5A5A5;	
 	}
     .nav-item{
 	    flex:1;
-	    height:30px;
+	    height:0.6rem;
 	    text-align:center;
 	    display:block;
 	    text-decoration:none;
 	}
     i{
-        width: 20px;
+        width: 0.4rem;
         height: 100%;
         display: block;
         background-repeat: no-repeat;

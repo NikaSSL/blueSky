@@ -25,27 +25,26 @@
 
 <style scoped>
 	.box{
-		height: 30px;
+		height: 0.6rem;
 		width: 100%;
-		border-radius: 25px;
+		border-radius: 1rem;
 		background-color: #F1F3F5;
 		color: #A5A5A5;
-		font-size: 14px;
-		line-height: 30px;
+		line-height: 0.6rem;
 		position: relative;
-		margin-left: 10px;
+		margin-left: 0.2rem;
 		text-align: center;
 	}
 	.write-img{
 		background-image: url("../assets/12_write_comment.png");
 		display: inline-block;
-		width: 20px;
-		height: 20px;
+		width: 0.4rem;
+		height: 0.4rem;
 		background-size: 100%;
 		background-repeat: no-repeat;
 		position: absolute;
 		top: 50%;
-		margin-top: -10px;
-		left: 15px;
+		margin-top: -0.2rem;
+		left: 0.3rem;
 	}
 </style>
