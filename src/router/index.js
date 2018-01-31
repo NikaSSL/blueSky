@@ -5,6 +5,8 @@ import News from '@/pages/news'
 import Orders from '@/pages/orders'
 import NewDetail from '@/pages/newDetail'
 import Search from '@/pages/search'
+import PushMsg from '@/pages/pushMsg.vue'
+import AboutBlueSky from '@/pages/aboutBlueSky.vue'
 
 Vue.use(Router)
 
@@ -24,6 +26,12 @@ export default new Router({
     },{
       path:'/search',
       component:Search
+    },{
+      path:'/pushMsg',
+      component: PushMsg
+    },{
+      path:'/aboutBlueSky',
+      component: AboutBlueSky
     }
   ]
 })

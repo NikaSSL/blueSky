@@ -13,7 +13,8 @@ const state = {
 	newInfo:{},//选中新闻的相关数据
 	comment:false,//评论板块是否显示
 	writeComment:false,//评论输入面板是否显示
-	searchResult:{}//搜索结果
+	searchResult:{},//搜索结果
+	pushMsg:{}//推送消息
 }
 
 //初始化 mutations
@@ -56,6 +57,9 @@ const mutations = {
 	},
 	Set_searchResult(state,result){//存入搜索结果
 		state.searchResult = result;
+	},
+	Set_PushMsg(state,pushMsg){
+		state.pushMsg = pushMsg;
 	}
 }
 

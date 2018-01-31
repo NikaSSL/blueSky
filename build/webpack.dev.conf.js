@@ -15,6 +15,7 @@ const express = require('express')
 const app = express()//请求server
 var newsList = require('../static/data/newsList.json')//加载本地数据文件
 var newsContent = require('../static/data/news1.json')
+var pushMsg = require('../static/data/pushMessage.json')
 var apiRoutes = express.Router()
 app.use('/api',apiRoutes)//通过路由请求数据
 
@@ -66,6 +67,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           data: newsContent
         })//接口返回json数据，上面配置的数据seller就赋值给data请求后调用
       })
+      app.get('/api/pushMsg', (req, res) => {
+        res.json({
+          errno: 0,
+          data: pushMsg
+        })//接口返回json数据，上面配置的数据seller就赋值给data请求后调用
+      })      
     }    
   },
   plugins: [

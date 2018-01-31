@@ -39,7 +39,7 @@ export default{
 		font-weight: bold;
 		font-size: 0.32rem;
 		border-bottom: 1px solid #E2E4E6;;
-		padding-top: 0.70rem;
+		padding-top: 0.6rem;
 	}
 	.header-box{
 		width: 100%;

@@ -34,7 +34,7 @@
 		text-align: center;
 		font-weight: bold;
 		font-size: 0.32rem;
-		border-bottom: 1px solid #F0F1F2;
+		border-bottom: 1px solid #E2E4E6;
 		padding-top: 0.70rem;
 	}
 	.header-box{

@@ -4,8 +4,8 @@
 <template>
 	<router-link to="/newDetail">
 		<div class="container new-item" v-if="item.image.position==='right'">
-			<div class="row">
-				<div class="col-xs-8 word-box">
+			<div class="row add-padding">
+				<div class="col-xs-8 zero-padding">
 					<span class="item-title">{{item.titile}}</span class="item-title">
 					<div class="small-word1">
 						<span v-if="item.top">置顶</span>
@@ -16,21 +16,21 @@
 					</div>
 
 				</div>
-				<div class="col-xs-4">
+				<div class="col-xs-4 text-right zero-padding">
 					<img v-bind:src='item.image.url' class="img-small">
 				</div>
 			</div>
 		</div>
 		
 		<div class="container new-item" v-else>
-			<div class="row" v-if="item.image.position==='block'">
-				<div class="col-xs-12">
+			<div class="row add-padding" v-if="item.image.position==='block'">
+				<div class="col-xs-12 zero-padding">
 					<span class="item-title">{{item.titile}}</span class="item-title">
 				</div>
-				<div class="col-xs-12">
+				<div class="col-xs-12 zero-padding">
 					<img v-bind:src='item.image.url' class="img-big">
 				</div>
-				<div class="col-xs-12 small-word2">
+				<div class="col-xs-12 small-word2 zero-padding">
 					<span v-if="item.top">置顶</span>
 					<span>{{dateTme}}</span>
 					<span>{{item.source}}</span>
@@ -106,6 +106,12 @@
 	span{
 		font-size: 0.22rem;
 		color: #A5A5A5;
-		margin-right: 0.1rem;
+	}
+	.zero-padding{
+		padding: 0;
+	}
+	.add-padding{
+		padding-left: 0.3rem;
+		padding-right: 0.3rem;
 	}
 </style>
