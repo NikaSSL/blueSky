@@ -5,14 +5,14 @@
 	<div class="container box">
 		<div class="row">
 			<router-link class="black" to="/pushMsg">
-			<div class="col-xs-4 col-xs-offset-2 modify-padding  row-height line-space">
-				<span>消息通知</span>
-				<div class="new-info"></div>
-			</div>
+				<div class="col-xs-4 col-xs-offset-2 modify-padding  row-height line-space">
+					<span>消息通知</span>
+					<div class="new-info"></div>
+				</div>
+				<div class="col-xs-6 line-space row-height modify-padding">
+					<i class="arrow"></i>
+				</div>
 			</router-link>
-			<div class="col-xs-6 line-space row-height modify-padding">
-				<i class="arrow"></i>
-			</div>
 		</div>
 		<div class="row row-height">
 			<div class="col-xs-4 col-xs-offset-2 modify-padding">
@@ -33,6 +33,7 @@
 
 <style scoped>
 	.box{
+		width: 100%;
 		border-top: 0.1rem solid #F1F3F5;
 		border-bottom: 0.1rem solid #F1F3F5;
 		font-size: 0.28rem;

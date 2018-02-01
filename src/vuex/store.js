@@ -14,7 +14,9 @@ const state = {
 	comment:false,//评论板块是否显示
 	writeComment:false,//评论输入面板是否显示
 	searchResult:{},//搜索结果
-	pushMsg:{}//推送消息
+	pushMsg:{},//推送消息
+	orderList:{},//订阅内容
+	thumbUpList:{}//已赞评论
 }
 
 //初始化 mutations
@@ -55,11 +57,17 @@ const mutations = {
 	Toggle_write(state){
 		state.writeComment = !state.writeComment;
 	},
-	Set_searchResult(state,result){//存入搜索结果
+	Set_searchResult(state,result){
 		state.searchResult = result;
 	},
 	Set_PushMsg(state,pushMsg){
 		state.pushMsg = pushMsg;
+	},
+	Set_SubMsg(state,orderList){
+		state.orderList = orderList;
+	},
+	Set_ThumbUpList(state,thumbUpList){
+		state.thumbUpList = thumbUpList;
 	}
 }
 

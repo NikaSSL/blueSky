@@ -1,6 +1,7 @@
 <template>
 	<div class="outer-box">
-		<head-ban></head-ban>
+		<router-link to="/temp">lll</router-link>
+		<head-ban :headText="headText" :searchState="searchState" ::backState="backState"></head-ban>
 		<!-- 利用v-if判断是否加载 -->
 		<new-item v-for="(item,index) in newsList" v-if="item" :item="item" :key="index"></new-item>
 	</div>
@@ -15,9 +16,12 @@ import NewItem from '../components/newsListItem.vue'
 			HeadBan,
 			NewItem
 		},
-		data(){
+		data:function(){
 			return {
-				newsList:[]
+				newsList:[],
+				headText:'新闻',
+				searchState:true,
+				backState:false
 			}
 		},
 		created(){

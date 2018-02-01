@@ -125,10 +125,10 @@ import NewsContent from '../components/detailNewsContent.vue'
 		text-align: center;
 	}
 	.active{
-		background-color: #A5A5A5;
+		background-color: #008CFF;
 	}
 	.unactive{
-		background-color: #008CFF;
+		background-color: #A5A5A5;
 	}
 	.order-box{
 		margin-top: 5px;

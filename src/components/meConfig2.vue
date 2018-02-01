@@ -8,18 +8,20 @@
 				<div class="col-xs-4 col-xs-offset-2  modify-padding  row-height line-space">
 					<span>关于</span>
 				</div>
+				<div class="col-xs-6 line-space row-height">
+					<i class="arrow"></i>
+				</div>
 			</router-link>
-			<div class="col-xs-6 line-space row-height">
-				<i class="arrow"></i>
-			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-4 col-xs-offset-2  modify-padding  row-height line-space">
-				<span>赞过的</span>
-			</div>
-			<div class="col-xs-6 line-space row-height">
-				<i class="arrow"></i>
-			</div>
+			<router-link class="black" to="/thumbUp" @click.native="hideFooter">			
+				<div class="col-xs-4 col-xs-offset-2  modify-padding  row-height line-space">
+					<span>赞过的</span>
+				</div>
+				<div class="col-xs-6 line-space row-height">
+					<i class="arrow"></i>
+				</div>
+			</router-link>
 		</div>
 		<div class="row">
 			<div class="col-xs-4 col-xs-offset-2  modify-padding  row-height line-space">
@@ -46,8 +48,10 @@
 
 <style scoped>
 	.box{
+		width: 100%;
 		border-bottom: 0.4rem solid #F1F3F5;
 		font-size: 0.28rem;
+		margin-bottom: 1rem;
 	}
 	.line-space{
 		border-bottom: 1px solid #F1F3F5; 

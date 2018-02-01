@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Me from '@/pages/me'
-import News from '@/pages/news'
+import NewList from '@/pages/newList'
 import Orders from '@/pages/orders'
 import NewDetail from '@/pages/newDetail'
 import Search from '@/pages/search'
-import PushMsg from '@/pages/pushMsg.vue'
-import AboutBlueSky from '@/pages/aboutBlueSky.vue'
+import PushMsg from '@/pages/pushMsg'
+import AboutBlueSky from '@/pages/aboutBlueSky'
+import ThumbUp from '@/pages/thumbUp'
+
+import temp from '@/pages/loadFaild'
 
 Vue.use(Router)
 
@@ -15,8 +18,8 @@ export default new Router({
 		path:'/me',
 		component:Me
     },{
-    	path:'/news',
-    	component:News
+    	path:'/newList',
+    	component:NewList
     },{
     	path:'/orders',
     	component:Orders
@@ -32,6 +35,12 @@ export default new Router({
     },{
       path:'/aboutBlueSky',
       component: AboutBlueSky
+    },{
+      path:'/thumbUp',
+      component:ThumbUp
+    },{
+      path:'/temp',
+      component:temp
     }
   ]
 })

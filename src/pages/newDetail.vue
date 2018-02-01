@@ -4,9 +4,7 @@
 <template>
 	<div>
 		<!-- 头部组件-返回主页 -->
-		<div class="header">
-			<router-link class="back" to="/news" @click.native="backHome"></router-link>
-		</div>
+		<head-ban :headText="headText" :searchState="searchState" :backState="backState"></head-ban>
 		<!-- 新闻详细内容 -->
 		<detail-content></detail-content>
 		<!-- 评论组件 -->
@@ -24,6 +22,7 @@
 
 
 <script>
+	import HeadBan from '../components/indexHeader.vue'
 	import DetailContent from '../components/detailNew.vue'
 	import DetailBottom from '../components/detailBottom.vue'
 	import SharePanel from '../components/detailShare.vue'
@@ -43,6 +42,16 @@
 			},
 			maskingState:function(){
 				return this.shareState || this.writeComment;
+			},
+			inNews:function(){
+				return this.$store.state.news;				
+			}
+		},
+		data:function(){
+			return {
+				headText:'',
+				searchState:false,
+				backState:true
 			}
 		},
 		components:{
@@ -50,10 +59,11 @@
 			DetailBottom,
 			SharePanel,
 			CommentList,
-			WritePanel
+			WritePanel,
+			HeadBan
 		},
 		methods:{
-			backHome:function(){//返回主页修改inIndex，显示主页底部导航
+			backNewList:function(){//返回主页修改inIndex，显示主页底部导航
 				this.$store.dispatch("inIndex");
 			},
 			hide:function(){//修改outShare，退出分享界面
@@ -76,26 +86,6 @@
 </script>
 
 <style scoped>
-	.header{
-		width: 100%;
-		height: 1.31rem;
-		border-bottom: 0.01rem solid #E2E4E6;
-		position: fixed;
-		top: 0;
-		background-color: #FFFFFF;
-		z-index: 2;
-	}
-	.back{
-		background-image: url("../assets/4_icon_back.png");
-		background-size: 100%;
-		background-repeat: no-repeat;
-		width: 0.32rem;
-		height: 0.32rem;
-		margin-left: 0.3rem;
-		margin-top: 0.68rem;
-		display: block;
-		position: absolute;
-	}
 	.cover{
 		background-color: rgba(0,0,0,0.50);
 		opacity:0.6;

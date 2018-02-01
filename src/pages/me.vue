@@ -1,9 +1,8 @@
+
 <template>
 	<div>
-		<div class="header-box">
-			<span class="header-title">我的</span>
-		</div>
-		<me-login></me-login>
+		<head-ban :headText="headText" :searchState="searchState" :backState="backState"></head-ban>
+ 		<me-login></me-login>
 		<me-collect></me-collect>
 		<me-config></me-config>
 		<me-config2></me-config2>
@@ -11,13 +10,22 @@
 </template>
 
 <script>
+import HeadBan from '../components/indexHeader.vue'
 import MeLogin from '../components/meLogin.vue'
 import MeCollect from '../components/meCollect.vue'
 import MeConfig from '../components/meConfig.vue'
 import MeConfig2 from '../components/meConfig2.vue'
 export default{
 	name:'me',
+	data:function(){
+		return {
+			headText:'我的',
+			searchState:false,
+			backState:false
+		}
+	},
 	components:{
+		HeadBan,
 		MeLogin,
 		MeCollect,
 		MeConfig,
@@ -29,20 +37,3 @@ export default{
 	}
 }
 </script>
-
-<style scoped>
-	.header-title{
-		display: block;
-		width: 100%;
-		height: 1.31rem;
-		text-align: center;
-		font-weight: bold;
-		font-size: 0.32rem;
-		border-bottom: 1px solid #E2E4E6;;
-		padding-top: 0.6rem;
-	}
-	.header-box{
-		width: 100%;
-		background-color: #FFFFFF;
-	}
-</style>

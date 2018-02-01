@@ -24,6 +24,7 @@
 		text-align: center;        
 		background-repeat: no-repeat;
         background-size: 100%;
+        margin-top: 1.3rem;
 	}
 	.login{
 		width: 1.2rem;

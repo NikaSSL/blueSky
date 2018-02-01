@@ -1,9 +1,6 @@
 <template>
 	<div class="outer-box">
-		<div class="header">
-			<router-link class="back" to="/me"></router-link>
-			<span class="head-title">消息通知</span>
-		</div>
+		<head-ban :headText="headText" :searchState="searchState" :backState="backState"></head-ban>
 		<div class="msg-list">
 			<msg-item v-for="(item,index) in msg" :key="index" :item="item"></msg-item>			
 		</div>
@@ -11,15 +8,24 @@
 </template>
 
 <script>
-import MsgItem from '../components/msgItem.vue'
+	import HeadBan from '../components/indexHeader.vue'
+	import MsgItem from '../components/msgItem.vue'
 	export default{
 		name:'pushMsg',
+		data(){
+			return{
+				headText:'消息通知',
+				searchState:false,
+				backState:true
+			}
+		},
 		computed:{
 			msg:function(){
 				return this.$store.state.pushMsg?this.$store.state.pushMsg:{};
 			}
 		},
 		components:{
+			HeadBan,
 			MsgItem
 		},
 		methods:{

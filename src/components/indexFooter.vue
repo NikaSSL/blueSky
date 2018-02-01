@@ -5,7 +5,7 @@
 	<div class="container-fluid nav-box">
 		<div class="row">
 			<div class="col-xs-4">
-				<router-link :class="['nav-item',news?'black':'grey']" to="/news">
+				<router-link :class="['nav-item',news?'black':'grey']" to="/newList">
 					<i :class="[news?'news1':'news']"></i>新闻
 				</router-link>
 			</div>

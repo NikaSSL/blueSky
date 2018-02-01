@@ -7,7 +7,7 @@
 		<div class="header">
 			<input type="text" placeholder="请输入关键字" class="search-input" @keyup.enter="search" v-model="searchWords" autofocus="autofocus">
 			<i class="delete" v-show="searchWords" @click="empty"></i>
-			<router-link to='/news' @click.native="backHome" class="black">取消</router-link>
+			<router-link :to="inNews?'/newList':'/orders'" @click.native="showFooter" class="black">取消</router-link>
 		</div>
 
 		<!-- 搜索时，展示热门搜索关键字 -->
@@ -38,8 +38,13 @@
 				searchWords:''
 			}
 		},
+		computed:{
+			inNews:function(){
+				return this.$store.state.news;
+			}
+		},
 		methods:{
-			backHome:function(){//返回新闻首页
+			showFooter:function(){//显示底部导航
 				this.$store.dispatch('inIndex');
 			},
 			search:function(){//获取搜索结果
@@ -52,15 +57,6 @@
 				this.searchWords = '';
 			}
 		}
-		// ,directives:{
-		// 	focus:{
-		// 		inserted:function(el,{value}){
-		// 			if (value) {
-		// 			  el.focus();          
-		// 			}
-		// 		}
-		// 	}
-		// }
 	}
 </script>
 
