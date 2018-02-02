@@ -9,7 +9,7 @@ import PushMsg from '@/pages/pushMsg'
 import AboutBlueSky from '@/pages/aboutBlueSky'
 import ThumbUp from '@/pages/thumbUp'
 
-import temp from '@/pages/loadFaild'
+import temp from '@/pages/temp.vue'
 
 Vue.use(Router)
 
