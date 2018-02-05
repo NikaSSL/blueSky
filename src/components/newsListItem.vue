@@ -3,11 +3,12 @@
 
 <template>
 	<router-link to="/newDetail">
-		<div class="container new-item" v-if="item.image.position==='right'">
-			<div class="row add-padding">
+		<div :class="['container','new-item',darkState?'default-night':'default-day']">
+
+			<div class="row add-padding" v-if="item.image.position==='right'">
 				<div class="col-xs-8 zero-padding">
-					<span class="item-title">{{item.titile}}</span class="item-title">
-					<div class="small-word1">
+					<span :class="['item-title',darkState?'default-night':'']">{{item.titile}}</span class="item-title">
+					<div :class="['small-word1',darkState?'words-night':'words-day']">
 						<span v-if="item.top">置顶</span>
 						<span>{{dateTme}}</span>
 						<span>{{item.source}}</span>
@@ -20,26 +21,26 @@
 					<img v-bind:src='item.image.url' class="img-small">
 				</div>
 			</div>
-		</div>
-		
-		<div class="container new-item" v-else>
-			<div class="row add-padding" v-if="item.image.position==='block'">
+
+			<div class="row add-padding" v-else>
 				<div class="col-xs-12 zero-padding">
-					<span class="item-title">{{item.titile}}</span class="item-title">
+					<span :class="['item-title',darkState?'default-night':'']">{{item.titile}}</span class="item-title">
 				</div>
 				<div class="col-xs-12 zero-padding">
 					<img v-bind:src='item.image.url' class="img-big">
 				</div>
-				<div class="col-xs-12 small-word2 zero-padding">
+				<div :class="['col-xs-12','small-word2','zero-padding',darkState?'words-night':'words-day']">
 					<span v-if="item.top">置顶</span>
 					<span>{{dateTme}}</span>
 					<span>{{item.source}}</span>
 					<span><i class="icn count"></i>{{item.comments[0].count}}</span>
 					<span><i class="icn thumbUp"></i>{{item.comments[0].thumbUp}}</span>
 				</div>
-			</div>			
+			 </div>		
 		</div>
+
 		<div class="line"></div>
+
 	</router-link>
 </template>   
 
@@ -50,7 +51,10 @@
 		computed:{
 			dateTme:function(){
 				return this.item.dateTme.split(' ')[0];
-			}
+			},
+			darkState:function(){
+				return this.$store.state.darkState;
+			}	
 		}
 	}
 </script>
@@ -58,8 +62,8 @@
 <style scoped>
 	.new-item{
 		width: 100%;
-		margin-top: 0.4rem;
-		margin-bottom: 0.4rem;
+		padding-top: 0.4rem;
+		padding-bottom: 0.4rem;
 		text-align: left;
 	}
 	.img-small{
@@ -98,14 +102,19 @@
 		background-image: url('../assets/6_icon_good.png');
 	}
 	.small-word1{
-		margin-top: 0.44rem;
+		margin-top: 0.44rem;		
+		font-size: 0.22rem;
+
 	}
 	.small-word2{
 		margin-top: 0.15rem;
-	}
-	span{
 		font-size: 0.22rem;
+	}
+	.words-day{
 		color: #A5A5A5;
+	}
+	.words-night{
+		color: #6F7379;
 	}
 	.zero-padding{
 		padding: 0;
@@ -114,4 +123,12 @@
 		padding-left: 0.3rem;
 		padding-right: 0.3rem;
 	}
+	.default-day{
+		background-color:  #FFFFFF;
+		color: #333333!important;
+	}
+	.default-night{
+		background-color: #181A1D;
+		color: #A2A4A6!important;
+	}	
 </style>

@@ -2,7 +2,7 @@
 	<div class="outer-box">
 		<div class="header">
 			<router-link class="back" to="/me" @click.native="showFooter"></router-link>
-			<span class="head-title">关于蓝琼</span>
+			<span class="head-title">关于蓝穹</span>
 		</div>
 		<div class="content">
 			<p>蓝穹新闻订阅APP是一款新闻定向推送及订阅类的APP。</p>

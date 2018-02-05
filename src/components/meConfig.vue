@@ -2,24 +2,24 @@
 <!-- Me页面中相关配置-1 -->
 
 <template>
-	<div class="container box">
+	<div :class="['container','box',darkState?'night-box':'day-box']">
 		<div class="row">
-			<router-link class="black" to="/pushMsg">
-				<div class="col-xs-4 col-xs-offset-2 modify-padding  row-height line-space">
+			<router-link :class="[darkState?'night-word':'day-word']" to="/pushMsg">
+				<div :class="['col-xs-4','col-xs-offset-2','modify-padding','row-height',darkState?'night-line':'day-line']">
 					<span>消息通知</span>
 					<div class="new-info"></div>
 				</div>
-				<div class="col-xs-6 line-space row-height modify-padding">
-					<i class="arrow"></i>
+				<div :class="['col-xs-6','row-height','modify-padding',darkState?'night-word':'day-line']">
+					<i :class="['arrow',darkState?'night-arrow':'night-arrow']"></i>
 				</div>
 			</router-link>
 		</div>
 		<div class="row row-height">
-			<div class="col-xs-4 col-xs-offset-2 modify-padding">
+			<div :class="['col-xs-4','col-xs-offset-2','modify-padding',darkState?'night-word':'day-word']">
 				<span>夜间模式</span>
 			</div>
 			<div class="col-xs-6 row-height modify-padding">
-				<i class="arrow"></i>
+				<i :class="['arrow',darkState?'night-arrow':'night-arrow']"></i>
 			</div>
 		</div>
 	</div>
@@ -27,16 +27,30 @@
 
 <script>
 	export default{
-		name:"meConfig"
+		name:"meConfig",
+		computed:{
+			darkState:function(){
+				return this.$store.state.darkState;
+			}
+		}
 	}
 </script>
 
 <style scoped>
 	.box{
 		width: 100%;
+		font-size: 0.28rem;
+	}
+	.night-box{
+		border-top: 0.1rem solid #2A2A30;
+		border-bottom: 0.1rem solid #2A2A30;
+	}
+	.day-box{
 		border-top: 0.1rem solid #F1F3F5;
 		border-bottom: 0.1rem solid #F1F3F5;
-		font-size: 0.28rem;
+	}
+	.night-word{
+		color: #A2A4A6;		
 	}
 	.row-height{
 		height: 0.9rem;
@@ -46,14 +60,16 @@
 		padding-left: 0;
 		padding-right: 0.3rem;
 	}
-	.black{
+	.day-word{
 		color: #333333;
 	}
-	.line-space{
-		border-bottom: 1px solid #E2E4E6;; 
+	.night-line{
+		border-bottom: 1px solid  #2A2A30; 	
+	}
+	.day-line{
+		border-bottom: 1px solid #E2E4E6; 
 	}
 	.arrow{
-		background-image: url("../assets/48_dark_back.png");
 		background-repeat: no-repeat;
 		background-size: 100%;
 		display: block;
@@ -63,6 +79,13 @@
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
+		transform: rotate(180deg);
+	}
+	.day-arrow{
+		background-image: url("../assets/48_dark_back.png");
+	}
+	.night-arrow{
+		background-image: url("../assets/4_icon_back.png");
 	}	
 	.new-info{
 		display: inline-block;

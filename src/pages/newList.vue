@@ -3,9 +3,9 @@
 
 <template>
 	<div class="outer-box">
-		<head-ban :headText="headText" :searchState="searchState" ::backState="backState"></head-ban>
+		<head-ban :headText="headText" :searchState="searchState" :backState="backState"></head-ban>
 		<!-- 利用v-if判断是否加载 -->	
-		<v-scroll :on-refresh="onRefresh" :on-infinite="onInfinite" :dataList="scrollData">
+		<v-scroll :on-refresh="onRefresh" :on-infinite="onInfinite" :dataList="scrollData" :newsNum="newsNum">
 			<new-item v-for="(item,index) in showData" v-if="item" :item="item" :key="index"></new-item>	
 		</v-scroll>
 	</div>
@@ -36,7 +36,8 @@ import VScroll from '../components/pullRefresh.vue'
 				showData:[],//展示的数据
 				scrollData:{
 					noFlag:false//暂无更多数据显示
-				}
+				},
+				newsNum:0
 			}
 		},
 		created(){
@@ -58,7 +59,10 @@ import VScroll from '../components/pullRefresh.vue'
 				this.getNewData();
 				//将更新的数据加入应显示数据数组中
 				if(!this.showData || this.showData[0].id != this.newData[0].id){
-					this.showData = this.newData.concat(this.showData);					
+					this.showData = this.newData.concat(this.showData);
+					this.newsNum = this.newData.length;				
+				}else{
+					this.newsNum = 0;
 				}
 				done();
 			},

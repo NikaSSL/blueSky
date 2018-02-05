@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="[darkState?'default-night':'default-day']">
     <router-view/>
     <footer-tab v-if="index"></footer-tab>
   </div>
@@ -22,6 +22,9 @@ export default {
   computed:{
     index(){
       return this.$store.state.index;
+    },
+    darkState(){
+      return this.$store.state.darkState;
     }
   }
 }
@@ -36,5 +39,8 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+.default-night{
+  background-color: #181A1D;
 }
 </style>

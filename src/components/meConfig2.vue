@@ -2,33 +2,33 @@
 <!-- Me页面中相关配置-2 -->
 
 <template>
-	<div class="container box">
+	<div :class="['container','box',darkState?'night-word night-box':'day-box']">
 		<div class="row">
-			<router-link class="black" to="/aboutBlueSky" @click.native="hideFooter">
-				<div class="col-xs-4 col-xs-offset-2  modify-padding  row-height line-space">
+			<router-link :class="[darkState?'night-word':'day']" to="/aboutBlueSky" @click.native="hideFooter">
+				<div :class="['col-xs-4','col-xs-offset-2','modify-padding','row-height','line',darkState?'night-line':'day-line']">
 					<span>关于</span>
 				</div>
-				<div class="col-xs-6 line-space row-height">
-					<i class="arrow"></i>
+				<div :class="['col-xs-6','row-height','line',darkState?'night-line':'day-line']">
+					<i :class="['arrow',darkState?'night-arrow':'night-arrow']"></i>
 				</div>
 			</router-link>
 		</div>
 		<div class="row">
-			<router-link class="black" to="/thumbUp" @click.native="hideFooter">			
-				<div class="col-xs-4 col-xs-offset-2  modify-padding  row-height line-space">
+			<router-link :class="[darkState?'night-word':'day']" to="/thumbUp" @click.native="hideFooter">			
+				<div :class="['col-xs-4','col-xs-offset-2','modify-padding','row-height','line',darkState?'night-line':'day-line']">
 					<span>赞过的</span>
 				</div>
-				<div class="col-xs-6 line-space row-height">
-					<i class="arrow"></i>
+				<div :class="['col-xs-6','row-height','line',darkState?'night-line':'day-line']">
+					<i :class="['arrow',darkState?'night-arrow':'night-arrow']"></i>
 				</div>
 			</router-link>
 		</div>
 		<div class="row">
-			<div class="col-xs-4 col-xs-offset-2  modify-padding  row-height line-space">
+			<div :class="['col-xs-4','col-xs-offset-2','modify-padding','row-height','line',darkState?'night-line':'day-line']">
 				<span>当前版本</span>
 				<div class="new-info"></div>
 			</div>
-			<div class="col-xs-6 line-space row-height word-style">
+			<div :class="['col-xs-6','line','row-height','word-style',darkState?'night-word night-line':'day-inner-word day-line']">
 				1.0
 			</div>
 		</div>		
@@ -38,6 +38,11 @@
 <script>
 	export default{
 		name:'meConfig2',
+		computed:{
+			darkState:function(){
+				return this.$store.state.darkState;
+			}
+		},
 		methods:{
 			hideFooter:function(){
 				this.$store.dispatch('outIndex');
@@ -49,17 +54,29 @@
 <style scoped>
 	.box{
 		width: 100%;
-		border-bottom: 0.4rem solid #F1F3F5;
 		font-size: 0.28rem;
 		margin-bottom: 1rem;
 	}
-	.line-space{
-		border-bottom: 1px solid #F1F3F5; 
+	.night-box{
+		border-bottom: 0.4rem solid #2A2A30;
+	}
+	.day-box{
+		border-bottom: 0.4rem solid #F1F3F5;		
+	}
+	.night-word{
+		color: #A2A4A6;
+	}
+	.line{
 		padding-left: 0;
 		padding-right: 0.3rem;
 	}
+	.day-line{
+		border-bottom: 1px solid #F1F3F5; 
+	}
+	.night-line{
+		border-bottom: 1px solid #2A2A30;
+	}
 	.arrow{
-		background-image: url("../assets/48_dark_back.png");
 		background-repeat: no-repeat;
 		background-size: 100%;
 		display: block;
@@ -69,6 +86,13 @@
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
+		transform: rotate(180deg);
+	}
+	.day-arrow{
+		background-image: url("../assets/48_dark_back.png");
+	}
+	.night-arrow{
+		background-image: url("../assets/4_icon_back.png");
 	}
 	.row-height{
 		height: 0.9rem;
@@ -79,6 +103,8 @@
 	}
 	.word-style{
 		text-align: right;
+	}
+	.day-inner-word{
 		color: #A5A5A5;
 	}
 	.new-info{

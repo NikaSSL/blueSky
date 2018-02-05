@@ -1,6 +1,6 @@
 
 <template>
-	<div>
+	<div class="me-box">
 		<head-ban :headText="headText" :searchState="searchState" :backState="backState"></head-ban>
  		<me-login></me-login>
 		<me-collect></me-collect>
@@ -37,3 +37,8 @@ export default{
 	}
 }
 </script>
+                 
+
+<style scoped>
+
+</style>

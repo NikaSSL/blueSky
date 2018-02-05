@@ -16,7 +16,8 @@ const state = {
 	searchResult:{},//搜索结果
 	pushMsg:{},//推送消息
 	orderList:{},//订阅内容
-	thumbUpList:{}//已赞评论
+	thumbUpList:{},//已赞评论
+	darkState:true//夜晚模式是否开启
 }
 
 //初始化 mutations
@@ -39,7 +40,7 @@ const mutations = {
 	Out_Index(state){
 		state.index = false;
 	},
-	In_Index(state){
+	IN_Index(state){
 		state.index = true;
 	},
 	IN_Share(state){
@@ -68,6 +69,12 @@ const mutations = {
 	},
 	Set_ThumbUpList(state,thumbUpList){
 		state.thumbUpList = thumbUpList;
+	},
+	In_Dark(state){
+		state.darkState = true;
+	},
+	Out_Dark(state){
+		state.darkState = false;
 	}
 }
 
@@ -86,7 +93,7 @@ const actions ={
 		commit('Out_Index');
 	},
 	inIndex({commit}){
-		commit('In_Index');
+		commit('IN_Index');
 	},
 	inShare({commit}){
 		commit('IN_Share');
@@ -102,6 +109,12 @@ const actions ={
 	},
 	toggleWrite({commit}){
 		commit('Toggle_write');
+	},
+	inDark({commit}){
+		commit('IN_Dark');
+	},
+	outDark({commit}){
+		commit('Out_Dark');
 	}
 }
 

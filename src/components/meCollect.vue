@@ -2,16 +2,28 @@
 <!-- Me页面中收藏与历史组件 -->
 
 <template>
-<div class="container-fluid collect-box">
+<div :class="['container-fluid','collect-box',darkState?'night-box':'']">
 	<div class="row">
 		<div class="col-xs-12 word-style">
-			<i class="collect-btn"></i>	
+			<i :class="['collect-btn',darkState?'night-btn':'']"></i>	
 			<span>收藏与历史</span>
 		</div>
 	</div>
 </div>
 
 </template>
+
+<script>
+	export default{
+		name:'meCollect',
+		computed:{
+			darkState:function(){
+				return this.$store.state.darkState;
+			}
+		}
+	}
+</script>
+
 
 <style scoped>
 	.collect-btn{
@@ -25,6 +37,9 @@
 		margin-right: auto;
 		margin-bottom: 0.1rem;
 	}
+	.night-btn{
+		opacity: 0.5;
+	}
 	.word-style{
 		text-align: center;
 		font-size: 0.24rem;
@@ -32,5 +47,8 @@
 	.collect-box{
 		width: 100%;
 		height: 1.86rem;
+	}
+	.night-box{
+		color: #A2A4A6;
 	}
 </style>

@@ -1,25 +1,22 @@
 <template lang="html">
 <!--     <div class="yo-scroll" :class="{'down':(state===0),'up':(state==1),'refresh':(state===2),touch:touching}" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)"> -->
-        <div class="yo-scroll" :class="{'pull':(state===(0||1||2)),touch:touching}" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)">
+        <div class="yo-scroll" :class="{touch:touching}" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)">
         <section class="inner" :style="{ transform: 'translate3d(0, ' + top + 'px, 0)' }">
             <div class="pull-refresh">
-                <slot name="pull-refresh">
-<!--                     <span class="down-tip">下拉刷新</span>
-                    <span class="up-tip">松开刷新数据</span>
-                    <span class="refresh-tip">加载中……</span> -->
-                    <span class="pull-tip">下拉刷新</span>
-                </slot>
+<!--            <span class="down-tip">下拉刷新</span>
+                <span class="up-tip">松开刷新数据</span>
+                <span class="refresh-tip">加载中……</span> -->
+                <span class="pull-tip" v-show="state===2||state===1">下拉刷新</span>
+                <span class="refresh-tip1" v-show="state===3 && newsNum!=0">更新了{{newsNum}}条内容</span>
+                <span class="refresh-tip2" v-show="state===3 && newsNum===0">暂无更新内容</span>
             </div>
-            <div class="tips">更新了X条内容</div>
             <slot>
             </slot>
-            <footer class="load-more">
-                <slot name="load-more">
-<!--                     <span v-show="downFlag === false">上拉加载更多</span> -->
-                    <span v-show="downFlag === true">正在刷新</span>
-                </slot>
-            </footer>
-            <div class="nullData" v-show="dataList.noFlag">暂无更多数据</div>
+            <div class="load-more" v-show="downFlag">
+                <!-- <span v-show="downFlag === false">上拉加载更多</span> -->
+                <div class="refresh-img"></div><div class="loading-tip">正在刷新</div>
+            </div>                
+            <div class="load-tip" v-show="dataList.noFlag">暂无更多数据</div>
         </section>
     </div>
 </template>
@@ -29,7 +26,7 @@
         props: {
             offset: {
                 type: Number,
-                default: 100 //默认高度
+                default: 20 //默认高度
             },
             enableInfinite: {
                 type: Boolean,
@@ -52,12 +49,16 @@
                 type: Function,
                 default: undefined,
                 require: false
+            },
+            newsNum:{
+                type: Number,
+                default: 0
             }
         },
         data() {
             return {
                 top: 0,
-                state: 0,
+                state: 0,//0表下拉前，1表下拉时，2表加载中，3表加载后
                 startX: 0,
                 startY: 0,
                 touching: false,
@@ -73,7 +74,7 @@
                 this.touching = true; //留着有用，不能删除
 
                 this.dataList.noFlag = false;
-                this.$el.querySelector('.load-more').style.display = 'block';
+                this.$el.querySelector('.load-more').style.display = 'flex';
             },
             touchMove(e) {
                 if(!this.enableRefresh || this.dataList.noFlag || !this.touching) {
@@ -93,7 +94,7 @@
 
                 let more = this.$el.querySelector('.load-more');
                 if(!this.top && this.state === 0) {
-                    more.style.display = 'block';
+                    more.style.display = 'flex';
                 } else {
                     more.style.display = 'none';
                 }
@@ -159,8 +160,11 @@
                 }, 1000);
             },
             refreshDone() {
-                this.state = 0
                 this.top = 0
+                this.state = 3
+                setTimeout(() => {
+                    this.state = 0
+                },1500);
             },
             infinite() {
                 this.infiniteLoading = true
@@ -178,23 +182,13 @@
 
 <style scoped>
     .yo-scroll {
-        font-size: 24px;
-        position: absolute;
-        top: 80px;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow: auto;
-        height: auto;
+        font-size: 0.3rem;
+        text-align: center;
         -webkit-overflow-scrolling: touch;
     }
     .load-more {
-        height: 5rem;
-        line-height: 5rem;
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
+        height: 1rem;
+        line-height: 1rem;
         display: none;
     }
     .nullData {
@@ -204,45 +198,47 @@
         line-height: 80px;
         text-align: center;
     }
-    .down-tip,
-    .refresh-tip,
-    .up-tip {
-        display: none;
-    }
-    .up-tip:before,
-    .refresh-tip:before {
-        content: '';
-        display: inline-block;
-        width: 160px;
-        height: 70px;
-        background-size: 70% !important;
-        position: absolute;
-        top: 0;
-        left: 20%;
-    }
-    .up-tip:before {
-        /*background: url(../img/pull-refresh/down-logo.png) no-repeat center;*/
-    }
-    .refresh-tip:before {
-        /*background: url(../img/pull-refresh/refresh-logo.gif) no-repeat center;*/
-    }
     .yo-scroll.touch .inner {
         transition-duration: 0;
     }
-
-/*    .yo-scroll.down .down-tip {
+    .refresh-tip1,.refresh-tip2{
+        background-color: #008BFF;
+        color: #F8F8F8;
+        width: 100%;
+        height: 0.7rem;
+        line-height: 0.7rem;
         display: block;
     }
-
-    .yo-scroll.up .up-tip {
+    .pull-tip{
+        width: 100%;
+        height: 0.7rem;
+        line-height: 0.7rem;
         display: block;
+        color: #A5A5A5;
+    }
+    .load-more{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #A5A5A5;
+    }
+    .refresh-img{
+        background-image: url("../assets/11_up_renovate.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 0.4rem;
+        height: 0.4rem;
+    }
+    .load-tip{
+        height: 0.7rem;
+        line-height: 0.7rem;
+        color: #A5A5A5;
     }
 
-    .yo-scroll.refresh .refresh-tip {
-        display: block;
-    }*/
-
-    .yo-scroll.pull .pull-tip{
-        display: block;
+    .c-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
 </style>
