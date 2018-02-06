@@ -4,7 +4,7 @@
 
 <template>
 	<div class="list-box">
-		<span class="decorate">全部评论({{number}})</span>
+		<span :class="['decorate',darkState?'night-wrod':'']">全部评论({{number}})</span>
 		<div v-show="!number">
 			<img src="../assets/56_no_comment.png" class="none-comment">
 		</div>
@@ -25,6 +25,9 @@
 			},
 			number:function(){
 				return this.items.length;
+			},
+			darkState:function(){
+				return this.$store.state.darkState;
 			}
 		}
 	}
@@ -38,6 +41,9 @@
 	.decorate{
 		margin-left: 0.3rem;
 		font-size: 0.26rem;
+	}
+	.night-wrod{
+		color: #A2A4A6;
 	}
 	.none-comment{
 		display: block;

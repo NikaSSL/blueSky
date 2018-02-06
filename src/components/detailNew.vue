@@ -3,19 +3,19 @@
 
 <template>
 	<div class="outer-box">
-		<span class="news-title">{{news.titile}}</span >
+		<span :class="['news-title',darkState?'night-title':'']">{{news.titile}}</span >
 		<div class="container inner-box">
 			<div class="row">
 				<div class="col-xs-1">
-					<i class="source-img"></i>
+					<i :class="['source-img',darkState?'night-img':'']"></i>
 				</div>
 				<div class="col-xs-5 box2">
-					<span class="source-name">{{news.source}}</span>
-					<div class="top-box"><span class="top">置顶</span></div>
-					<span class="time">{{dateTme}}</span>
+					<span :class="['source-name',darkState?'night-samll-word':'']">{{news.source}}</span>
+					<div :class="['top-box',darkState?'night-top-box':'day-top-box']"><span :class="['top',darkState?'night-top':'day-top']">置顶</span></div>
+					<span :class="['time',darkState?'night-samll-word':'']">{{dateTme}}</span>
 				</div>
 				<div class="col-xs-2 col-xs-offset-4 order-box">
-					<span :class="['order',orderState?'unactive':'active']" @click="toggleOrder">订阅</span>
+					<span :class="['order',orderState?darkState?'night-unactive':'day-unactive':darkState?'night-active':'day-active']" @click="toggleOrder">订阅</span>
 				</div>
 			</div>
 		</div>
@@ -38,6 +38,9 @@ import NewsContent from '../components/detailNewsContent.vue'
 			},
 			dateTme:function(){
 				return this.news.dateTme?this.news.dateTme.split(' ')[0]:'';
+			},
+			darkState:function(){
+				return this.$store.state.darkState;
 			}
 		},
 		components:{
@@ -56,7 +59,7 @@ import NewsContent from '../components/detailNewsContent.vue'
 
 <style scoped>
 	.outer-box{
-		margin: 1.31rem 0.3rem 1rem 0.3rem;
+		padding: 0 0.3rem 0.6rem 0.3rem;
 	}
 	.inner-box{
 		margin-bottom: 0.31rem;
@@ -69,6 +72,9 @@ import NewsContent from '../components/detailNewsContent.vue'
 		padding-top: 0.3rem;
 		padding-bottom: 0.18rem;
 		font-weight: bold;
+	}
+	.night-title{
+		color: #A2A4A6;
 	}
 	.source-img{
 		background-image: url("../assets/35_img_54X54.png");
@@ -83,20 +89,30 @@ import NewsContent from '../components/detailNewsContent.vue'
 		height: 0.54rem;
 	}
 	.top-box{
-		border: 1px solid #FF0000;
 		position: absolute;
 		bottom: 0px;
 		width: 0.4rem;
 		height: 0.2rem;
 	}
+	.day-top-box{
+		border: 1px solid #FF0000;
+	}
+	.night-top-box{
+		border: 1px solid #0088FF;
+	}
 	.top{
-		color: #FF0000;
 		font-size: 0.16rem;
 		display: inline-block;
 		width: 0.34rem;
 		position: absolute;
 		left: 0.04rem;
 		bottom: -0.02rem;
+	}
+	.day-top{
+		color: #FF0000;
+	}
+	.night-top{
+		color: #0088FF;
 	}
 	.source-name{
 		font-size: 0.24rem;
@@ -117,21 +133,37 @@ import NewsContent from '../components/detailNewsContent.vue'
 	.order{
 		width: 1.06rem;
 		height: 0.52rem;
-		color: #FFFFFF;
 		font-size: 0.24rem;
 		display: block;
 		line-height: 0.52rem;
 		border-radius: 0.06rem;
 		text-align: center;
+		border-width: 0;
 	}
-	.active{
+	.day-active{
 		background-color: #008CFF;
+		color: #FFFFFF;
 	}
-	.unactive{
+	.night-active{
+		background-color: #2A2A30;
+		color: #6F7379;
+	}
+	.day-unactive{
 		background-color: #A5A5A5;
+		color: #FFFFFF;
+	}
+	.night-unactive{
+		background-color: #0088FF;		
+		color: #6F7379;
 	}
 	.order-box{
 		margin-top: 5px;
+	}
+	.night-samll-word{
+		color:  #6F7379;
+	}
+	.night-img{
+		opacity: .8;
 	}
 </style>
 

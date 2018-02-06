@@ -5,7 +5,9 @@
 <div :class="['container-fluid','collect-box',darkState?'night-box':'']">
 	<div class="row">
 		<div class="col-xs-12 word-style">
-			<i :class="['collect-btn',darkState?'night-btn':'']"></i>	
+			<router-link to="/collectHistory/history" @click.native="hideFooter">
+				<i :class="['collect-btn',darkState?'night-btn':'']"></i>	
+			</router-link>
 			<span>收藏与历史</span>
 		</div>
 	</div>
@@ -19,6 +21,11 @@
 		computed:{
 			darkState:function(){
 				return this.$store.state.darkState;
+			}
+		},
+		methods:{
+			hideFooter:function(){
+				this.$store.dispatch('outIndex');
 			}
 		}
 	}

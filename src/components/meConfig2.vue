@@ -4,7 +4,7 @@
 <template>
 	<div :class="['container','box',darkState?'night-word night-box':'day-box']">
 		<div class="row">
-			<router-link :class="[darkState?'night-word':'day']" to="/aboutBlueSky" @click.native="hideFooter">
+			<router-link :class="[darkState?'night-word':'day-word']" to="/aboutBlueSky" @click.native="hideFooter">
 				<div :class="['col-xs-4','col-xs-offset-2','modify-padding','row-height','line',darkState?'night-line':'day-line']">
 					<span>关于</span>
 				</div>
@@ -14,7 +14,7 @@
 			</router-link>
 		</div>
 		<div class="row">
-			<router-link :class="[darkState?'night-word':'day']" to="/thumbUp" @click.native="hideFooter">			
+			<router-link :class="[darkState?'night-word':'day-word']" to="/thumbUp" @click.native="hideFooter">			
 				<div :class="['col-xs-4','col-xs-offset-2','modify-padding','row-height','line',darkState?'night-line':'day-line']">
 					<span>赞过的</span>
 				</div>
@@ -55,17 +55,19 @@
 	.box{
 		width: 100%;
 		font-size: 0.28rem;
-		margin-bottom: 1rem;
 	}
 	.night-box{
-		border-bottom: 0.4rem solid #2A2A30;
+		border-bottom: 0.3rem solid #2A2A30;
 	}
 	.day-box{
-		border-bottom: 0.4rem solid #F1F3F5;		
+		border-bottom: 0.3rem solid #F1F3F5;		
 	}
 	.night-word{
 		color: #A2A4A6;
 	}
+	.day-word{
+		color: #333333;
+	}	
 	.line{
 		padding-left: 0;
 		padding-right: 0.3rem;

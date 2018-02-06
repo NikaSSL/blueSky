@@ -40,5 +40,8 @@ export default{
                  
 
 <style scoped>
-
+	.me-box{
+		padding-top: 1.3rem;
+		padding-bottom: 1rem;
+	}
 </style>

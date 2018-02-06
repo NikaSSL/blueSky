@@ -2,7 +2,7 @@
 <!-- Me页面中登录组件 -->
 
 <template>
-	<div :class="['login-box',darkState?'box-night':'box-night']">
+	<div :class="['login-box',darkState?'box-night':'box-day']">
 		<img :class="['login',darkState?'login-night':'']" src="../assets/23_img_login2.png">
 	</div>
 </template>
@@ -25,7 +25,6 @@
 		text-align: center;        
 		background-repeat: no-repeat;
         background-size: 100%;
-        margin-top: 1.3rem;
 	}
 	.box-day{
 		background-image: url("../assets/22_img_login.png");

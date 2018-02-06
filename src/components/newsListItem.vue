@@ -9,7 +9,7 @@
 				<div class="col-xs-8 zero-padding">
 					<span :class="['item-title',darkState?'default-night':'']">{{item.titile}}</span class="item-title">
 					<div :class="['small-word1',darkState?'words-night':'words-day']">
-						<span v-if="item.top">置顶</span>
+						<span v-if="item.top"  :class="[darkState?'night-top':'day-top']">置顶</span>
 						<span>{{dateTme}}</span>
 						<span>{{item.source}}</span>
 						<span><i class="icn count"></i>{{item.comments[0].count}}</span>
@@ -18,7 +18,7 @@
 
 				</div>
 				<div class="col-xs-4 text-right zero-padding">
-					<img v-bind:src='item.image.url' class="img-small">
+					<img v-bind:src='item.image.url' :class="['img-small',darkState?'night-img':'']">
 				</div>
 			</div>
 
@@ -27,10 +27,10 @@
 					<span :class="['item-title',darkState?'default-night':'']">{{item.titile}}</span class="item-title">
 				</div>
 				<div class="col-xs-12 zero-padding">
-					<img v-bind:src='item.image.url' class="img-big">
+					<img v-bind:src='item.image.url' :class="['img-big',darkState?'night-img':'']">
 				</div>
 				<div :class="['col-xs-12','small-word2','zero-padding',darkState?'words-night':'words-day']">
-					<span v-if="item.top">置顶</span>
+					<span v-if="item.top" :class="[darkState?'night-top':'day-top']">置顶</span>
 					<span>{{dateTme}}</span>
 					<span>{{item.source}}</span>
 					<span><i class="icn count"></i>{{item.comments[0].count}}</span>
@@ -39,7 +39,7 @@
 			 </div>		
 		</div>
 
-		<div class="line"></div>
+		<div :class="['line',darkState?'night-line':'day-line']"></div>
 
 	</router-link>
 </template>   
@@ -78,9 +78,10 @@
 	.line{
 		width: 96%;
 		height: 1px;
-		background-color: #E2E4E6;
 		margin: 0 auto;
 	}
+	.day-line{background-color: #E2E4E6;}
+	.night-line{background-color: #2A2A30;}
 	.item-title{
 		font-size: 0.32rem;
 		font-weight: bold;
@@ -130,5 +131,18 @@
 	.default-night{
 		background-color: #181A1D;
 		color: #A2A4A6!important;
-	}	
+	}
+	.night-img{
+		opacity: 0.8;
+	}
+	.night-top{
+		font-size: 0.16rem;
+		color: #0088FF;
+		border: 1px solid #0088FF;
+	}
+	.day-top{
+		font-size: 0.16rem;
+		color: #FF0000;
+		border: 1px solid #FF0000;
+	}
 </style>

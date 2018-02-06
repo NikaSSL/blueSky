@@ -1,5 +1,5 @@
 <template>
-	<div class="box">
+	<div :class="['box',darkState?'night-box':'day-box']">
 		<i class="write-img"></i>
 		<span @click="comment">写评论</span>
 	</div>
@@ -12,6 +12,11 @@
 		data:function(){
 			return {
 				commentState:false
+			}
+		},
+		computed:{
+			darkState:function(){
+				return this.$store.state.darkState;
 			}
 		},
 		methods:{
@@ -28,12 +33,18 @@
 		height: 0.6rem;
 		width: 100%;
 		border-radius: 1rem;
-		background-color: #F1F3F5;
-		color: #A5A5A5;
 		line-height: 0.6rem;
 		position: relative;
 		margin-left: 0.2rem;
 		text-align: center;
+		color: #A5A5A5;
+		border-width: 0;
+	}
+	.day-box{
+		background-color: #F1F3F5;
+	}
+	.night-box{
+		background-color: #2A2A30;	
 	}
 	.write-img{
 		background-image: url("../assets/12_write_comment.png");

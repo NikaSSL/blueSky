@@ -43,6 +43,6 @@
 
 <style scoped>
 	.msg-list{
-		margin-top: 1.3rem;
+		padding-top: 1.3rem;
 	}
 </style>

@@ -17,7 +17,7 @@ const state = {
 	pushMsg:{},//推送消息
 	orderList:{},//订阅内容
 	thumbUpList:{},//已赞评论
-	darkState:true//夜晚模式是否开启
+	darkState:false//夜晚模式是否开启
 }
 
 //初始化 mutations
