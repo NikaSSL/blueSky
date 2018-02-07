@@ -17,7 +17,15 @@ const state = {
 	pushMsg:{},//推送消息
 	orderList:{},//订阅内容
 	thumbUpList:{},//已赞评论
-	darkState:false//夜晚模式是否开启
+	darkState:true,//夜晚模式是否开启
+	collectList:{},//收藏列表数据
+	historyList:{},//历史列表数据
+	editState:false,//编辑状态
+	chooseAll:{
+		state:false,
+		new:true
+	},//是否全选
+	inCollect:true//是否进入收藏页面
 }
 
 //初始化 mutations
@@ -75,6 +83,35 @@ const mutations = {
 	},
 	Out_Dark(state){
 		state.darkState = false;
+	},
+	Set_CollectList(state,collectList){
+		state.collectList = collectList;
+	},
+	Set_HistoryList(state,historyList){
+		state.historyList = historyList;
+	},
+	In_Edit(state){
+		state.editState = true;
+	},
+	Out_Edit(state){
+		state.editState = false;
+	},
+	In_ChooseAll(state){
+		state.chooseAll.state = true;
+		state.chooseAll.new = true;
+	},
+	Old_ChooseAll(state){
+		state.chooseAll.new = false;
+	},
+	Reset_ChooseAll(state){
+		state.chooseAll.state = false;
+		state.chooseAll.new = true;
+	},
+	In_Collect(state){
+		state.inCollect = true;
+	},
+	In_History(state){
+		state.inCollect = false;
 	}
 }
 
@@ -115,6 +152,27 @@ const actions ={
 	},
 	outDark({commit}){
 		commit('Out_Dark');
+	},
+	inEdit({commit}){
+		commit('In_Edit');
+	},
+	outEdit({commit}){
+		commit('Out_Edit');
+	},
+	inChooseAll({commit}){
+		commit('In_ChooseAll');
+	},
+	oldChooseAll({commit}){
+		commit('Old_ChooseAll');
+	},
+	resetChooseAll({commit}){
+		commit('Reset_ChooseAll');
+	},
+	inCollect({commit}){
+		commit('In_Collect');
+	},
+	inHistory({commit}){
+		commit('In_History');
 	}
 }
 

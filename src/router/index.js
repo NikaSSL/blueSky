@@ -9,7 +9,7 @@ import PushMsg from '@/pages/pushMsg'
 import AboutBlueSky from '@/pages/aboutBlueSky'
 import ThumbUp from '@/pages/thumbUp'
 import CollectHistory from '@/pages/collectHistory'
-import Collect from '@/pages/collect'
+import CollectHistoryList from '@/pages/collectHistoryList'
 import History from '@/pages/history'
 
 import temp from '@/pages/temp.vue'
@@ -46,11 +46,8 @@ export default new Router({
       component:CollectHistory,
       children:[
         {
-          path:'collect',
-          component:Collect
-        },{
-          path:'history',
-          component:History
+          path:'list',
+          component:CollectHistoryList
         }
       ]
     },{

@@ -5,7 +5,7 @@
 <div :class="['container-fluid','collect-box',darkState?'night-box':'']">
 	<div class="row">
 		<div class="col-xs-12 word-style">
-			<router-link to="/collectHistory/history" @click.native="hideFooter">
+			<router-link to="/collectHistory/list" @click.native="hideFooter">
 				<i :class="['collect-btn',darkState?'night-btn':'']"></i>	
 			</router-link>
 			<span>收藏与历史</span>

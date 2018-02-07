@@ -7,8 +7,8 @@
                 <span class="up-tip">松开刷新数据</span>
                 <span class="refresh-tip">加载中……</span> -->
                 <span class="pull-tip" v-show="state===2||state===1">下拉刷新</span>
-                <span class="refresh-tip1" v-show="state===3 && newsNum!=0">更新了{{newsNum}}条内容</span>
-                <span class="refresh-tip2" v-show="state===3 && newsNum===0">暂无更新内容</span>
+                <span :class="['refresh-tip',darkState?'night-refresh-tip':'day-refresh-tip']" v-show="state===3 && newsNum!=0">更新了{{newsNum}}条内容</span>
+                <span :class="['refresh-tip',darkState?'night-refresh-tip':'day-refresh-tip']" v-show="state===3 && newsNum===0">暂无更新内容</span>
             </div>
             <slot>
             </slot>
@@ -64,6 +64,11 @@
                 touching: false,
                 infiniteLoading: false,
                 downFlag: false, //用来显示是否加载中
+            }
+        },
+        computed:{
+            darkState:function(){
+                return this.$store.state.darkState;
             }
         },
         methods: {
@@ -201,13 +206,19 @@
     .yo-scroll.touch .inner {
         transition-duration: 0;
     }
-    .refresh-tip1,.refresh-tip2{
-        background-color: #008BFF;
-        color: #F8F8F8;
+    .refresh-tip{
         width: 100%;
         height: 0.7rem;
         line-height: 0.7rem;
         display: block;
+    }
+    .day-refresh-tip{
+        background-color: #008BFF;
+        color: #F8F8F8;
+    }
+    .night-refresh-tip{
+        background-color: #1C4872;
+        color: #A2A4A6;;
     }
     .pull-tip{
         width: 100%;

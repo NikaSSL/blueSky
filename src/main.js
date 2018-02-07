@@ -7,6 +7,7 @@ import $ from 'jquery'
 import '../node_modules/_bootstrap@3.3.7@bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/_bootstrap@3.3.7@bootstrap/dist/js/bootstrap.min.js'
 import axios from 'axios'
+import lazyload from '../directive.js'//自定义懒加载命令
 
 Vue.config.productionTip = false
 Vue.config.debug = true; // 开启错误提示

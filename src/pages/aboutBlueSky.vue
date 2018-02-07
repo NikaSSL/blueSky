@@ -84,9 +84,6 @@
 	.indentation{
 		text-indent: 2em;
 	}
-	.outer-box{
-		padding-bottom: 1rem;
-	}
 	.night-img{
 		opacity: 0.8;
 	}
@@ -233,7 +230,7 @@
 			background-image: url("../assets/4_icon_back.png");		
 		}
 		.night-back{
-			background-image: url("../assets/4_icon_back.png");
+			background-image: url("../assets/48_dark_back.png");
 		}
 		.content{
 			padding-top: 1.58rem;
