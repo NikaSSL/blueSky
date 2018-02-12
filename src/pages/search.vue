@@ -5,7 +5,7 @@
 	<div :class="['outer-box',darkState?'night-word':'day-word']">
 
 		<div class="header">
-			<input type="text" placeholder="请输入关键字" :class="['search-input',darkState?'night-search-input':'day-search-input']" @keyup.enter="search" v-model="searchWords" autofocus="autofocus">
+			<input type="text" placeholder="请输入关键字" :class="['search-input',darkState?'night-search-input':'day-search-input']" @keyup.enter="search" v-model="searchWords" v-focus>
 			<i :class="['delete',darkState?'night-delete':'']" v-show="searchWords" @click="empty"></i>
 			<router-link :to="inNews?'/newList':'/orders'" @click.native="showFooter" class="day-word">取消</router-link>
 		</div>

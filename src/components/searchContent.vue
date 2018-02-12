@@ -4,7 +4,7 @@
 <template>
 	<div class="result-box">
 	<!-- 查询有结果 -->
-		<div v-if="!flag">
+		<div v-if="flag">
 			<new-item v-for="(item,index) in result" v-if="item" :item="item" :key="index"></new-item>
 		</div>
 		<!-- 查询无结果 -->

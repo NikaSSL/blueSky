@@ -18,7 +18,8 @@
 
 				</div>
 				<div class="col-xs-4 text-right zero-padding">
-					<img v-bind:src='item.image.url' :class="['img-small',darkState?'night-img':'']">
+					<!-- <img v-bind:src='item.image.url' :class="['img-small',darkState?'night-img':'']"> -->
+					<img v-lazyload='item.image.url' :class="['img-small',darkState?'night-img':'']">
 				</div>
 			</div>
 
@@ -27,7 +28,8 @@
 					<span :class="['item-title',darkState?'default-night':'']">{{item.titile}}</span class="item-title">
 				</div>
 				<div class="col-xs-12 zero-padding">
-					<img v-bind:src='item.image.url' :class="['img-big',darkState?'night-img':'']">
+					<!-- <img v-bind:src='item.image.url' :class="['img-big',darkState?'night-img':'']"> -->
+					<img v-lazyload='item.image.url' :class="['img-big',darkState?'night-img':'']">
 				</div>
 				<div :class="['col-xs-12','small-word2','zero-padding',darkState?'words-night':'words-day']">
 					<span v-if="item.top" :class="[darkState?'night-top':'day-top']">置顶</span>

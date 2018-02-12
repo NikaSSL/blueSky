@@ -17,7 +17,7 @@ const state = {
 	pushMsg:{},//推送消息
 	orderList:{},//订阅内容
 	thumbUpList:{},//已赞评论
-	darkState:true,//夜晚模式是否开启
+	darkState:false,//夜晚模式是否开启
 	collectList:{},//收藏列表数据
 	historyList:{},//历史列表数据
 	editState:false,//编辑状态

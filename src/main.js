@@ -7,8 +7,10 @@ import $ from 'jquery'
 import '../node_modules/_bootstrap@3.3.7@bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/_bootstrap@3.3.7@bootstrap/dist/js/bootstrap.min.js'
 import axios from 'axios'
-import lazyload from '../directive.js'//自定义懒加载命令
+import focus from '../src/focus.js'//自定义焦点命令
+import LazyLoad from '../src/directive.js'//自定义懒加载命令
 
+Vue.use(LazyLoad);
 Vue.config.productionTip = false
 Vue.config.debug = true; // 开启错误提示
 Vue.prototype.$ajax = axios;
