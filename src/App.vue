@@ -1,11 +1,13 @@
 <template>
   <div id="app" :class="['app',darkState?'default-night':'default-day']">
+    <splash></splash>
     <router-view/>
     <footer-tab v-if="index"></footer-tab>
   </div>
 </template>
 
 <script>
+import Splash from './components/splash.vue'
 import FooterTab from './components/indexFooter.vue'
 import store from './vuex/store'
 export default {
@@ -17,7 +19,8 @@ export default {
     }
   },
   components:{
-    FooterTab
+    FooterTab,
+    Splash
   },
   computed:{
     index(){

@@ -44,7 +44,7 @@
 		},
 		methods:{
 			showBottom:function(){
-				return
+				this.$store.dispatch('inIndex');
 			},
 			edit:function(){
 				this.$store.dispatch('inEdit');

@@ -15,7 +15,8 @@
 					</div>
 				</div>
 				<div class="img-box">
-					<img :src="item.image.url" class="samll-img">
+					<!-- <img :src="item.image.url" class="samll-img"> -->
+					<img v-lazyload="item.image.url" class="samll-img">
 				</div>
 			</div>
 
@@ -24,7 +25,8 @@
 				<div :class="['inner-box',editState?'block-edit-box':'block-unedit-box']">
 					<div :class="['item-title','block-item-title',darkState?'night-item-title':'day-item-title']">{{item.titile}}</div>
 					<div class="img-box">
-						<img :src="item.image.url" class="big-img">
+						<!-- <img :src="item.image.url" class="big-img"> -->
+						<img v-lazyload="item.image.url" class="big-img">
 					</div>
 					<div :class="[darkState?'night-item-footer':'day-item-footer']">
 						<span>{{item.dateTme}}</span>

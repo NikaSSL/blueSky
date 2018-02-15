@@ -2,12 +2,35 @@
 <script>
 	export default{
 		name:'newsContent',
+		data(){
+			return {
+				myShowImg:this.showImg,//showImg副本
+				myNowSrc:this.nowSrc
+			}
+		},
+		watch:{
+			showImg(val){
+				this.myShowImg = val;
+			},
+			myShowImg(val){
+				this.$emit('on-show-change',val);
+			},
+			myNowSrc(val){
+				this.$emit('on-src-change',val);
+			}
+		},
 		computed:{
 			newContent:function(){
 				return this.$store.state.newInfo.content?this.$store.state.newInfo.content:[]
 			},
 			darkState:function(){
 				return this.$store.state.darkState;
+			}
+		},
+		props:{
+			showImg:{
+				type:Boolean,
+				default:false
 			}
 		},
 		render(createElement){
@@ -32,8 +55,18 @@
 					if(item.type === 'image'){
 						arr.push(createElement('img',{
 							attrs:{
-								src: item.text,
 								class:'content-img'
+							},
+							directives:[
+							{
+								name:'lazyload',
+								value:item.text
+							}],
+							on:{
+								click:()=>{//查看图片
+									this.myShowImg = true;
+									this.myNowSrc = item.text;
+								}
 							}
 						}));
 					}else if(item.type != 'h1'){//多余的标题，省略
@@ -41,6 +74,7 @@
 					}
 				}
 			});
+
 			return createElement('div',{
 				attrs:{
 					class:'content-box'
@@ -53,7 +87,6 @@
 <style scoped>
 	.content-img{
 		width: 6.9rem;
-		height: 2.7rem;
 	}
 	.night-img{
 		opacity: .8;

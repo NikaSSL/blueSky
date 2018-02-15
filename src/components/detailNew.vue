@@ -19,7 +19,18 @@
 				</div>
 			</div>
 		</div>
-		<news-content v-if="!this.$store.state.comment"></news-content>
+
+		<news-content v-show="!this.$store.state.comment && !showImg" :showImg="showImg" @on-show-change="onShowChange" @on-src-change="onSrcChange"></news-content>
+
+		<div v-show="showImg" class="img-panel" @click="hiddenImg" @touchmove.prevent >
+			<div class="img-list">
+				<img :src="nowSrc" class="img-detail">
+			</div>
+			<div class="footer-box">
+				<div class="page-num"><span class='now-num'>{{nowNum}}</span><span class="total-num">/{{totalNum}}</span></div>
+				<div class="download-icn"></div>
+			</div>
+		</div>	
 	</div>
 </template>
 
@@ -29,12 +40,33 @@ import NewsContent from '../components/detailNewsContent.vue'
 		name:'detailContent',
 		data:function(){
 			return {
-				orderState:false
+				orderState:false,
+				showImg:false,
+				nowSrc:''
 			}
 		},
 		computed:{
 			news:function(){
 				return this.$store.state.newInfo;
+			},
+			imgList:function(){
+				var list = [];
+				for(var i in this.news.content){
+					if (this.news.content[i].type === 'image') {
+						list.push(this.news.content[i].text);
+					}
+				}
+				return list;				
+			},
+			nowNum:function(){
+				return this.imgList.indexOf(this.nowSrc) + 1;
+			},
+			totalNum:function(){
+				var i = 0;
+				while(this.imgList[i]){
+					++i;
+				}
+				return i;
 			},
 			dateTme:function(){
 				return this.news.dateTme?this.news.dateTme.split(' ')[0]:'';
@@ -51,6 +83,15 @@ import NewsContent from '../components/detailNewsContent.vue'
 				this.orderState = !this.orderState;
 				//订阅或取消订阅
 				//...
+			},
+			hiddenImg:function(){
+				this.showImg = false;
+			},
+			onSrcChange:function(val){
+				this.nowSrc = val;
+			},
+			onShowChange:function(val){
+				this.showImg = val;
 			}
 		}
 	}
@@ -59,7 +100,7 @@ import NewsContent from '../components/detailNewsContent.vue'
 
 <style scoped>
 	.outer-box{
-		padding: 0 0.3rem 0.6rem 0.3rem;
+		padding: 0 0.3rem;
 	}
 	.inner-box{
 		margin-bottom: 0.31rem;
@@ -164,6 +205,53 @@ import NewsContent from '../components/detailNewsContent.vue'
 	}
 	.night-img{
 		opacity: .8;
+	}
+	.img-panel{
+		position: absolute;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background-color: #333333;
+		left: 0;
+		top: 0;
+		color:  #FFFFFF;
+		z-index: 99999;
+	}
+	.footer-box{
+		position: fixed;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		padding-bottom: .5rem;
+	}
+	.page-num{
+		float: left;
+		margin-left: 0.3rem;
+	}		
+	.now-num{
+		font-size: 0.42rem;
+	}
+	.total-num{
+		font-size: 0.24rem;
+	}
+	.download-icn{
+		width: 0.42rem;
+		height: 0.42rem;
+		background-image: url('../assets/33_save.png');
+		background-size: 100%;
+		background-repeat: no-repeat;
+		margin-right: 0.3rem;
+		float: right;
+	}
+	.img-list{
+		width: 100%;
+	}
+	.img-detail{
+		width: 100%;
 	}
 </style>
 

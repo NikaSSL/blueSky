@@ -38,7 +38,11 @@ export default(Vue,options = {})=>{
 			var image = new Image();
 			image.src = src;
 			image.onload = function(){
-				ele.src = src;
+				setTimeout(function(){
+					console.log(ele.src)
+					ele.src = src;
+				},1000);
+				// ele.src = src;
 				imageCatcheList.push(src);
 				listenList.remove(item);
 			}
