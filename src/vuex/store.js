@@ -8,7 +8,7 @@ const state = {
 	news:true,
 	orders:false,
 	me:false,
-	index:true,
+	index:false,
 	shareState:false,//分享界面是否显示
 	newInfo:{},//选中新闻的相关数据
 	comment:false,//评论板块是否显示
