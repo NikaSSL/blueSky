@@ -3,38 +3,43 @@
 
 <template>
 	<div class="outer-box">
-		<router-link to="/newDetail">
 
-			<div class="content-box" v-if="item.image.position==='right'">
-				<div :class="['check',editState?choose?'checked':darkState?'night-uncheck':'day-uncheck':'hidden']" @click="clickFn"></div>
-				<div class="inner-box right-box">
+		<div class="content-box" v-if="item.image.position==='right'">
+			<div :class="['check',editState?choose?'checked':darkState?'night-uncheck':'day-uncheck':'hidden']" @click="clickFn"></div>
+			<div class="inner-box right-box">
+				<router-link to="/newDetail">
 					<div :class="['item-title',darkState?editState?'night-item-title item-edit-title':'night-item-title item-unedit-title':editState?'day-item-title item-edit-title':'day-item-title item-unedit-title']">{{item.titile}}</div>
 					<div :class="[darkState?'night-item-footer':'day-item-footer']">
 						<span>{{dateTme}}</span>
 						<span>{{item.source}}</span>
 					</div>
-				</div>
-				<div class="img-box">
+				</router-link>
+			</div>
+			<div class="img-box">
+				<router-link to="/newDetail">
 					<!-- <img :src="item.image.url" class="samll-img"> -->
 					<img v-lazyload="item.image.url" class="samll-img">
+				</router-link>
+			</div>
+		</div>
+
+		<div class="content-box" v-else>
+			<div :class="['check',editState?choose?'checked':darkState?'night-uncheck':'day-uncheck':'hidden']" @click="clickFn"></div>
+			<div :class="['inner-box',editState?'block-edit-box':'block-unedit-box']">
+				<router-link to="/newDetail">
+				<div :class="['item-title','block-item-title',darkState?'night-item-title':'day-item-title']">{{item.titile}}</div>
+				<div class="img-box">
+					<!-- <img :src="item.image.url" class="big-img"> -->
+					<img v-lazyload="item.image.url" class="big-img">
 				</div>
+				<div :class="[darkState?'night-item-footer':'day-item-footer']">
+					<span>{{item.dateTme}}</span>
+					<span>{{item.source}}</span>
+				</div>	
+				</router-link>		
 			</div>
 
-			<div class="content-box" v-else>
-				<div :class="['check',editState?choose?'checked':darkState?'night-uncheck':'day-uncheck':'hidden']" @click="clickFn"></div>
-				<div :class="['inner-box',editState?'block-edit-box':'block-unedit-box']">
-					<div :class="['item-title','block-item-title',darkState?'night-item-title':'day-item-title']">{{item.titile}}</div>
-					<div class="img-box">
-						<!-- <img :src="item.image.url" class="big-img"> -->
-						<img v-lazyload="item.image.url" class="big-img">
-					</div>
-					<div :class="[darkState?'night-item-footer':'day-item-footer']">
-						<span>{{item.dateTme}}</span>
-						<span>{{item.source}}</span>
-					</div>			
-				</div>
-
-			</div>
+		</div>
 			
 		</router-link>
 		<div :class="['line',darkState?'night-line':'day-line']"></div>		

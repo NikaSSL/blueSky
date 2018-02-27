@@ -19,19 +19,25 @@
 				<span>夜间模式</span>
 			</div>
 			<div class="col-xs-6 row-height modify-padding">
-				<i :class="['arrow',darkState?'night-arrow':'night-arrow']"></i>
+				<div class="pull-right center-vertical">
+					<switch-btn></switch-btn>					
+				</div>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import SwitchBtn from '../components/switch.vue'
 	export default{
 		name:"meConfig",
 		computed:{
 			darkState:function(){
 				return this.$store.state.darkState;
 			}
+		},
+		components:{
+			SwitchBtn
 		}
 	}
 </script>
@@ -95,5 +101,10 @@
 		height: 0.1rem;
 		background-color: #FF0202;
 		border-radius: 50%;
+	}
+	.center-vertical{
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 </style>

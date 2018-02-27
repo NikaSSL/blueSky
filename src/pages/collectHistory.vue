@@ -45,6 +45,7 @@
 		methods:{
 			showBottom:function(){
 				this.$store.dispatch('inIndex');
+				this.cancel();
 			},
 			edit:function(){
 				this.$store.dispatch('inEdit');

@@ -33,6 +33,7 @@
 			loadState(val){
 				setTimeout(()=>{
 					this.$router.push('/newList');
+					this.$store.dispatch('inIndex');
 					this.loadingState = false;
 				},2000)
 			}

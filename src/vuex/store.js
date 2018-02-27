@@ -78,11 +78,8 @@ const mutations = {
 	Set_ThumbUpList(state,thumbUpList){
 		state.thumbUpList = thumbUpList;
 	},
-	In_Dark(state){
-		state.darkState = true;
-	},
-	Out_Dark(state){
-		state.darkState = false;
+	Toggle_Dark(state){
+		state.darkState = !state.darkState;
 	},
 	Set_CollectList(state,collectList){
 		state.collectList = collectList;
@@ -147,11 +144,8 @@ const actions ={
 	toggleWrite({commit}){
 		commit('Toggle_write');
 	},
-	inDark({commit}){
-		commit('IN_Dark');
-	},
-	outDark({commit}){
-		commit('Out_Dark');
+	toggleDark({commit}){
+		commit('Toggle_Dark');
 	},
 	inEdit({commit}){
 		commit('In_Edit');
